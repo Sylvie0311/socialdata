@@ -1,4 +1,4 @@
-/*購物車、會員、關於我們、商品介面樣式*/
+/*商品介面樣式*/
 *{
     box-sizing: border-box;
     margin:0px;
@@ -6,4 +6,9 @@
 }
 body{
     font-family: 'Noto Sans TC', serif;
+}
+/*點讚圖*/
+.finger{ 
+    width:30px;
+    height:30px;
 }
