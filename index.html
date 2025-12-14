@@ -12,116 +12,178 @@
 </head>
 <body>
     <header>
-        <h1>MAMA Moon</h1>
+        <h1>月月好棉</h1>
     </header>
 
     <nav> 
         <!--搜尋欄-->
-        <img src="img/magnifier (1).png" alt="搜尋圖示" class="icon">
-        <input type="text" placeholder="搜尋商品..." class="search-bar">
-        
+        <img src="img/magnifier (1).png" alt="搜尋圖示" class="up" id="search-icon">
+        <input type="text" placeholder="搜尋商品..." class="search-bar" id="search-input">
+       
+
         <!--購物車連結到cart.html-->
         <a href="html/cart.html">
-            <img src="img/shopping cart.png" alt="購物車圖示" class="icon">
+            <img src="img/shopping cart.png" alt="購物車圖示" class="up">
         </a>
 
         <!--會員連結到member.html-->
         <a href="html/member.html">
-            <img src="img/head.png" alt="會員頭像" class="icon">
+            <img src="img/head.png" alt="會員頭像" class="up">
         </a>
-
-        <div>
-            <a href="https://www.ifreesite.com/ubcode.htm">Unicode編碼表</a>
-        </div>
-        <div>
-            <a href="https://unicode.codethoi.com/zh-TW/index.html">在線 Unicode 轉換器</a>
-        </div>
-    </div>
 
         <!--關於我們連結到about.html-->
         <a href="html/about.html">
-            <img src="img/Menu-burger.png" alt="關於我們圖示" class="icon">
+            <img src="img/Menu-burger.png" alt="關於我們圖示" class="up">
         </a>
     </nav>
 
 
     <aside> <!--商品分類-->
     <!--蘇菲 要連結至對應種類及長度js-->
-        <p>蘇菲</p>
-        <select class="sophie">
-            <optgroup label="日用">
-                <option value="21">21cm</option>
-                <option value="23">23cm</option>
-                <option value="25">25cm</option>
-                <option value="28">28cm</option>
-            </optgroup>
+        <ul class="main-brand-list">
+        
+            <li class="brand-item submenu">
+                <a href="#">蘇菲</a>
+                
+                <div class="submenu-panel">
+                    <div class="submenu-column">
+                        <h3>日用系列</h3>
+                        <ul>
+                            <li><a href="link-21cm">21cm</a></li>
+                            <li><a href="link-23cm">23cm</a></li>
+                            <li><a href="link-25cm">25cm</a></li>
+                            <li><a href="link-28cm">28cm</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="submenu-column">
+                        <h3>夜用系列</h3>
+                        <ul>
+                            <li><a href="link-33cm">33cm</a></li>
+                            <li><a href="link-36cm">36cm</a></li>
+                            <li><a href="link-40cm">40cm</a></li>
+                        </ul>
+                    </div>
 
-            <optgroup label="夜用">
-                <option value="33">33cm</option>
-                <option value="36">36cm</option>
-                <option value="40">40cm</option>
-            </optgroup>
-            <optgroup label="護墊">
-                <option value="護墊">護墊商品</option>
-            </optgroup>
-        </select>
+                    <div class="submenu-column">
+                        <h3>其他</h3>
+                        <ul>
+                            <li><a href="link-pad">護墊商品</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </li>
+        
+        </ul>
+        
     <!--蕾妮亞-->
-        <p>蕾妮亞</p>
-        <select class="renia">
-            <optgroup label="日用">
-                <option value="21">21cm</option>
-                <option value="23">23cm</option>
-                <option value="25">25cm</option>
-                <option value="28">28cm</option>
-            </optgroup>
-            
-            <optgroup label="夜用">
-                <option value="33">33cm</option>
-                <option value="36">36cm</option>
-                <option value="40">40cm</option>
-            </optgroup>
-            <optgroup label="護墊">
-                <option value="護墊">護墊商品</option>
-            </optgroup>
-        </select>
+        <ul class="main-brand-list">
+        
+            <li class="brand-item submenu">
+                <a href="#">蕾妮亞</a>
+                
+                <div class="submenu-panel">
+                    <div class="submenu-column">
+                        <h3>日用系列</h3>
+                        <ul>
+                            <li><a href="link-21cm">21cm</a></li>
+                            <li><a href="link-23cm">23cm</a></li>
+                            <li><a href="link-25cm">25cm</a></li>
+                            <li><a href="link-28cm">28cm</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="submenu-column">
+                        <h3>夜用系列</h3>
+                        <ul>
+                            <li><a href="link-33cm">33cm</a></li>
+                            <li><a href="link-36cm">36cm</a></li>
+                            <li><a href="link-40cm">40cm</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="submenu-column">
+                        <h3>其他</h3>
+                        <ul>
+                            <li><a href="link-pad">護墊商品</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </li>
+        
+        </ul>
     <!--靠得住-->
-        <p>靠得住</p>
-        <select class="dependable">
-            <optgroup label="日用">
-                <option value="21">21cm</option>
-                <option value="23">23cm</option>
-                <option value="25">25cm</option>
-                <option value="28">28cm</option>
-            </optgroup>
-            
-            <optgroup label="夜用">
-                <option value="33">33cm</option>
-                <option value="36">36cm</option>
-                <option value="40">40cm</option>
-            </optgroup>
-            <optgroup label="護墊">
-                <option value="護墊">護墊商品</option>
-            </optgroup>
-        </select>
+        <ul class="main-brand-list">
+        
+            <li class="brand-item submenu">
+                <a href="#">靠得住</a>
+                
+                <div class="submenu-panel">
+                    <div class="submenu-column">
+                        <h3>日用系列</h3>
+                        <ul>
+                            <li><a href="link-21cm">21cm</a></li>
+                            <li><a href="link-23cm">23cm</a></li>
+                            <li><a href="link-25cm">25cm</a></li>
+                            <li><a href="link-28cm">28cm</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="submenu-column">
+                        <h3>夜用系列</h3>
+                        <ul>
+                            <li><a href="link-33cm">33cm</a></li>
+                            <li><a href="link-36cm">36cm</a></li>
+                            <li><a href="link-40cm">40cm</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="submenu-column">
+                        <h3>其他</h3>
+                        <ul>
+                            <li><a href="link-pad">護墊商品</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </li>
+        
+        </ul>
     <!--康乃馨-->
-        <p>康乃馨</p>
-        <select class="carnation">
-            <optgroup label="日用">
-                <option value="21">21cm</option>
-                <option value="23">23cm</option>
-                <option value="25">25cm</option>
-                <option value="28">28cm</option>
-            </optgroup>
-            
-            <optgroup label="夜用">
-                <option value="33">33cm</option>
-                <option value="36">36cm</option>
-                <option value="40">40cm</option>
-            </optgroup>
-            <optgroup label="護墊">
-                <option value="護墊">護墊商品</option>
-            </optgroup>
-        </select>
+        <ul class="main-brand-list">
+        
+            <li class="brand-item submenu">
+                <a href="#">康乃馨</a>
+                
+                <div class="submenu-panel">
+                    <div class="submenu-column">
+                        <h3>日用系列</h3>
+                        <ul>
+                            <li><a href="link-21cm">21cm</a></li>
+                            <li><a href="link-23cm">23cm</a></li>
+                            <li><a href="link-25cm">25cm</a></li>
+                            <li><a href="link-28cm">28cm</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="submenu-column">
+                        <h3>夜用系列</h3>
+                        <ul>
+                            <li><a href="link-33cm">33cm</a></li>
+                            <li><a href="link-36cm">36cm</a></li>
+                            <li><a href="link-40cm">40cm</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="submenu-column">
+                        <h3>其他</h3>
+                        <ul>
+                            <li><a href="link-pad">護墊商品</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </li>
+        
+        </ul>
     </aside>
 
     <main> <!--商品呈列，包含連結至商品介面+評論product.html-->
@@ -129,8 +191,8 @@
             <!--商品1-->
             <div class="product">
                 <a href="html/product.html">
-                    <img src="img/" alt="蘇菲日用21cm">
-                    <h3>蘇菲日用21cm</h3>
+                    <img src="img/螢幕擷取畫面 2025-12-14 003146.png" alt="蘇菲日用21cm">
+                    <h3>蘇菲日用21cm 香味透氣款 </h3>
                     <p>價格: $99</p>
                 </a>
             </div>
@@ -138,19 +200,85 @@
             <!--商品2-->
             <div class="product">
                 <a href="html/product.html">
-                    <img src="img/" alt="蘇菲日用23cm">
+                    <img src="img/螢幕擷取畫面 2025-12-14 003146.png" alt="蘇菲日用23cm">
                     <h3>蘇菲日用23cm</h3>
                     <p>價格: $109</p>
                 </a>
             </div>
-           
+            <!--商品3-->
+            <div class="product">
+                <a href="html/product.html">
+                    <img src="img/螢幕擷取畫面 2025-12-14 003146.png" alt="蘇菲日用25cm">
+                    <h3>蘇菲日用25cm</h3>
+                    <p>價格: $119</p>
+                </a>
+            </div>
+            <!--商品4-->
+            <div class="product">
+                <a href="html/product.html">
+                    <img src="img/螢幕擷取畫面 2025-12-14 003146.png" alt="蘇菲日用28cm">
+                    <h3>蘇菲日用28cm</h3>
+                    <p>價格: $129</p>
+                </a>
+            </div>
+            <!--商品5-->
+            <div class="product">
+                <a href="html/product.html">
+                    <img src="img/螢幕擷取畫面 2025-12-14 003146.png" alt="蘇菲夜用33cm">
+                    <h3>蘇菲夜用33cm</h3>
+                    <p>價格: $139</p>
+                </a>
+            </div>
+            <!--商品6-->
+            <div class="product">
+                <a href="html/product.html">
+                    <img src="img/螢幕擷取畫面 2025-12-14 003146.png" alt="蘇菲夜用36cm">
+                    <h3>蘇菲夜用36cm</h3>
+                    <p>價格: $149</p>
+                </a>
+            </div>
+            <!--商品7-->
+            <div class="product">
+                <a href="html/product.html">
+                    <img src="img/螢幕擷取畫面 2025-12-14 003146.png" alt="蘇菲夜用40cm">
+                    <h3>蘇菲夜用40cm</h3>
+                    <p>價格: $159</p>
+                </a>
+            </div>
+            <!--商品8-->
+            <div class="product">
+                <a href="html/product.html">
+                    <img src="img/螢幕擷取畫面 2025-12-14 003146.png" alt="蘇菲護墊商品">
+                    <h3>蘇菲護墊商品</h3>
+                    <p>價格: $89</p>
+                </a>
+            </div>
         </section>
     </main>
 
     <footer>
-        有任何相關問題請聯絡我們
+        聯絡我們:
+        <!--LINE社群-->
+        <a href="https://line.me/ti/g2/R7gZ1wMNLRIe4GeG-qnRetU_TKkZDogEERdk3A?utm_source=invitation&utm_medium=link_copy&utm_campaign=default">
+            <img src="img/line (2) (1).png" class="icon">
+        </a>
+        <!--Facebook社群-->
+        <a href="https://www.facebook.com/share/17srfKzdxM/">
+            <img src="img/facebook (1).png" class="icon">
+        </a>
+        <!--instegram-->
+        <a href="https://www.instagram.com/icon99tw?igsh=MWJndHowZWd4cGdn">
+            <img src="img/instagram (1).png" class="icon">
+        </a>
+        <!--email-->
+        <a href="mailto:minnie.yen311@gmail.com?subject=%E5%AE%A2%E6%9C%8D%E8%81%AF%E7%B5%9C%20-%20%E6%82%A8%E5%A5%BD%EF%BC%8C%E6%88%91%E6%9C%89%E4%B8%80%E4%BA%9B%E5%95%8F%E9%A1%8C%E6%83%B3%E8%AB%8B%E6%95%99%E6%82%A8%E5%80%91%E3%80%82" title="點擊寄信給客服">
+            <img src="img/communication (1).png" class="icon">
+        </a>
+
+        
+        
     </footer>
 
-    
+    <script src="js/web2.js"></script>
 </body>
 </html>
