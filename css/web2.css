@@ -1,9 +1,0 @@
-/*購物車、會員、關於我們、商品介面樣式*/
-*{
-    box-sizing: border-box;
-    margin:0px;
-    padding:0px;
-}
-body{
-    font-family: 'Noto Sans TC', serif;
-}
