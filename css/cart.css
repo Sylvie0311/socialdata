@@ -1,0 +1,121 @@
+*{
+    box-sizing: border-box;
+    margin:0px;
+    padding:0px;
+}
+body {
+    font-family: "Noto Sans TC", Arial, sans-serif;
+    background-color: #f5f5f5;
+    margin: 0;
+    padding: 20px;
+}
+  
+/* Header */
+.cart-header {
+    display: flex;
+    align-items: center;
+    border-bottom: 2px solid #1c355e;
+    padding: 10px;
+}
+  
+.back-s {
+    width: 24px;   /* 控制箭頭圖片大小 */
+    height: 24px;
+    cursor: pointer;
+}
+  
+.cart-title {
+    flex: 1;
+    text-align: center;
+    font-size: 20px;
+    font-weight: bold;
+}
+  
+
+/* 商品列 */
+.cart-item {
+    display: flex;
+    align-items: center;
+    padding: 15px;
+    border-bottom: 2px solid #1c355e;
+}
+  
+.item-img {
+    width: 90px;
+    height: 70px;
+    border: 2px solid #1c355e;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 15px;
+    font-size: 14px;
+}
+  
+.item-info {
+    flex: 1;
+}
+  
+.item-name {
+    border: 2px solid #1c355e;
+    padding: 5px;
+    margin-bottom: 8px;
+    text-align: center;
+}
+  
+.item-qty {
+    border: 2px solid #1c355e;
+    padding: 5px 8px;
+    width: fit-content;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+  
+.qty-s {
+    width: 28px;
+    height: 28px;
+    border: 2px solid #1c355e;
+    background: #fff;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.qty-s:hover {
+    background: #1c355e;
+    color: #fff;
+}
+
+.qty-num {
+    min-width: 20px;
+    text-align: center;
+    font-weight: bold;
+}
+
+/* Footer */
+.cart-footer {
+    display: flex;
+    justify-content: flex-end; /* 讓內容靠右排列 */
+    align-items: center;
+    padding: 15px;
+    border-top: 2px solid #1c355e;
+    gap: 20px; /* 總金額和按鈕之間留間距 */
+  }
+  
+.total {
+    font-size: 16px;
+    font-weight: bold;
+}
+  
+.buy-s {
+    padding: 6px 20px;
+    border: 2px solid #1c355e;
+    background: #fff;
+    font-weight: bold;
+    cursor: pointer;
+}
+  
+.buy-s:hover {
+    background: #1c355e;
+    color: #fff;
+}
+  
