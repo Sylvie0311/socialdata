@@ -1,0 +1,75 @@
+body {
+    font-family: "Microsoft JhengHei", sans-serif;
+    background-color: #ffe5ec;
+    margin: 0;
+    padding: 0;
+}
+  
+.container {
+    max-width: 500px;
+    margin: 50px auto;
+    padding: 20px;
+}
+  
+.card {
+    background: #fff;
+    border-radius: 8px;
+    padding: 30px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+  
+.title {
+    margin-bottom: 20px;
+    font-size: 24px;
+    text-align: center;
+}
+  
+.form {
+    display: grid;
+    gap: 15px; /*列距離*/
+}
+  
+.form-row {
+    display: flex;
+    flex-direction: column;
+}
+  
+label {
+    margin-bottom: 5px;
+    font-size: 14px;
+    color: #333;
+}
+  
+input[type="text"], /*文字輸入框*/
+input[type="password"],
+input[type="email"],
+input[type="tel"] {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+}
+  
+.form-actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+  
+.s {
+    padding: 10px 20px;
+    border-radius: 6px;
+    text-decoration: none;
+    text-align: center;
+}
+  
+.s.primary {
+    background: #4a90e2;
+    color: #fff;
+    border: none;
+}
+  
+.s.link {
+    background: transparent;
+    color: #4a90e2;
+}
+  
