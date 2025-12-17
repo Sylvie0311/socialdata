@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <title>購物車</title>
+  <link rel="stylesheet" href="cart.css">
+</head>
+<body>
+  <div class="cart-header">
+    <img src="img/arrow.png" class="back-s" alt="返回">
+    <span class="cart-title">
+      購物車（<span id="totall">0</span>）
+    </span>
+  </div>
+  
+    <!-- 商品 A -->
+    <div class="cart-item" data-price="500">
+      <div class="item-img">商品照片</div>
+      <div class="item-info">
+        <div class="item-name">商品 A</div>
+        <div class="item-qty">
+          <button class="qty-s minus">－</button>
+          <span class="qty-num">2</span>
+          <button class="qty-s plus">＋</button>
+        </div>
+      </div>
+    </div>
+  
+    <!-- 商品 B -->
+    <div class="cart-item" data-price="300">
+      <div class="item-img">商品照片</div>
+      <div class="item-info">
+        <div class="item-name">商品 B</div>
+        <div class="item-qty">
+          <button class="qty-s minus">－</button>
+          <span class="qty-num">3</span>
+          <button class="qty-s plus">＋</button>
+        </div>
+      </div>
+    </div>
+  
+    <!-- Footer -->
+    <div class="cart-footer">
+      <div class="total">
+        Total：$ <span id="totalPrice">0</span>
+      </div>
+      <button class="buy-s">結帳</button>
+    </div>
+  </div>
+  
+</body>
+</html>
