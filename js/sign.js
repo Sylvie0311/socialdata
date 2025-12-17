@@ -1,3 +1,4 @@
+/*會員登入註冊、購物車、關於我們*/
 function toggleAddress() {
     const homeSelected = document.querySelector('input[value="home"]').checked;
     const sevenSelected = document.querySelector('input[value="7-11"]').checked;
@@ -56,3 +57,4 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
   
+
