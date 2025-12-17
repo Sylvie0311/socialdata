@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>註冊</title>
+  <link rel="stylesheet" href="sign.css">
+</head>
+<body>
+  <main class="container">
+    <section class="card">
+      <h1 class="title">註冊</h1>
+      <form class="form" action="/sign" method="post">
+
+        <!-- 帳號與密碼 -->
+        <div class="form-row">
+          <label for="username">暱稱：</label>
+          <input type="text" id="username" name="username" required placeholder="請輸入暱稱">
+        </div>
+
+        <div class="form-row">
+          <label for="password">密碼：</label>
+          <input type="password" id="password" name="password" required placeholder="請輸入密碼">
+        </div>
+
+        <!-- 個人資料 -->
+        <div class="form-row">
+          <label for="name">姓名：</label>
+          <input type="text" id="name" name="name" required placeholder="王小明">
+        </div>
+
+        <div class="form-row">
+          <label for="phone">電話：</label>
+          <input type="tel" id="phone" name="phone" required placeholder="0912-345-678">
+        </div>
+
+        <div class="form-row">
+          <label for="email">E-mail：</label>
+          <input type="email" id="email" name="email" required placeholder="example@mail.com">
+        </div>
+
+        <!-- 付款方式 -->
+        <div class="form-row">
+          <label>選擇付款方式：</label>
+          <label><input type="radio" name="payment" value="cash" required> 貨到付款</label>
+          <label><input type="radio" name="payment" value="credit"> 信用卡</label>
+        </div>
+
+        <!-- 運送方式 -->
+        <div class="form-row">
+          <label>選擇運送方式：</label>
+          <label><input type="radio" name="shipping" value="home" onclick="toggleAddress()"> 宅配到府</label>
+          <label><input type="radio" name="shipping" value="7-11" onclick="toggleAddress()"> 7-11取貨</label>
+        </div>
+
+        <!-- 地址輸入 -->
+        <div class="form-row" id="address-home" style="display:none;">
+          <label for="home-address">宅配地址：</label>
+          <input type="text" id="home-address" name="home-address" placeholder="請輸入住家地址">
+        </div>
+
+        <div class="form-row" id="address-711" style="display:none;">
+          <label for="store-address">7-11門市：</label>
+          <input type="text" id="store-address" name="store-address" placeholder="請輸入門市名稱或代碼">
+        </div>
+
+        <!-- 提交 -->
+        <div class="form-actions">
+          <button type="submit" class="s primary">註冊</button>
+          <a href="login.html" class="s link">已有帳號？前往登入</a>
+        </div>
+      </form>
+    </section>
+  </main>
+  <script src="sign.js"></script>
+
+</body>
+</html>
