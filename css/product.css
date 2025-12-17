@@ -1,4 +1,4 @@
-/*購物車、會員、關於我們、商品介面樣式、評論*/
+/*購物車、會員、關於我們、評論*/
 *{
     box-sizing: border-box;
     margin:0px;
@@ -142,3 +142,4 @@ body{
 .actions a:hover {
     text-decoration: underline;
 }
+
