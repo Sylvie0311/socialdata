@@ -1,0 +1,40 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: "Microsoft JhengHei", sans-serif;
+    background-color: #ffe5ec;
+}
+
+/* 外框 */
+.about-area {
+    width: 90%;
+    margin: 30px auto;
+    border: 2px solid black;
+    padding: 20px;
+}
+
+
+/* 單一 */
+.card {
+    width: 180px;
+    border: 2px solid black;
+    text-align: center;
+    padding: 20px 10px;
+}
+
+/* 圓形頭像 */
+.photo-box img {
+    width: 80%;  
+    height: 100%;  
+    object-fit: cover; 
+    border-radius: 80%;
+}
+  
+/* 文字間距 */
+.card p {
+    margin: 6px 0;
+}
