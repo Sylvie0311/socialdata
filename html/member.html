@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <title>我的評論與評分</title>
+  <link rel="stylesheet" href="member.css">
+</head>
+<body>
+<!-- 外層大框 -->
+<div class="review-box">
+
+  <h2 class="title">我的評論與評分：</h2>
+  <!-- 評論 A -->
+  <div class="review-items">
+    <div class="product-img"></div>
+
+    <div class="review-content">
+      <div class="date">2025/11/20</div>
+
+      <div class="stars">
+        <input type="radio" id="a-star5" name="rating-a"><label for="a-star5">&#9733;</label>
+        <input type="radio" id="a-star4" name="rating-a"><label for="a-star4">&#9733;</label>
+        <input type="radio" id="a-star3" name="rating-a"><label for="a-star3">&#9733;</label>
+        <input type="radio" id="a-star2" name="rating-a"><label for="a-star2">&#9733;</label>
+        <input type="radio" id="a-star1" name="rating-a"><label for="a-star1">&#9733;</label>
+      </div>
+
+      <div class="comment">商品品質很好</div>
+      <div class="product-name">商品A</div>
+    </div>
+
+    <div class="actionss">
+      <a href="#">[編輯]</a><br>
+      <a href="#">[刪除]</a>
+    </div>
+  </div>
+
+  <hr>
+
+  <!-- 評論 B -->
+  <div class="review-items">
+    <div class="product-img"></div>
+
+    <div class="review-content">
+      <div class="date">2025/12/10</div>
+
+      <div class="stars">
+        <input type="radio" id="b-star5" name="rating-b"><label for="b-star5">&#9733;</label>
+        <input type="radio" id="b-star4" name="rating-b"><label for="b-star4">&#9733;</label>
+        <input type="radio" id="b-star3" name="rating-b"><label for="b-star3">&#9733;</label>
+        <input type="radio" id="b-star2" name="rating-b"><label for="b-star2">&#9733;</label>
+        <input type="radio" id="b-star1" name="rating-b"><label for="b-star1">&#9733;</label>
+      </div>
+
+      <div class="comment"></div>
+      <div class="product-name">商品B</div>
+    </div>
+
+    <div class="actionss">
+      <a href="#">[編輯]</a><br>
+      <a href="#">[刪除]</a>
+    </div>
+  </div> 
+</div>
+
+<!--歷史訂單／消費紀錄：會員介面-->
+
+  <h1>歷史訂單</h1>
+  <div class="search-box">
+  <!-- 搜尋列 -->
+  <div class="search-bar">
+    <img src="../img/magnifier.png">
+    <link rel="stylesheet" href="index.html">
+    <span class="bracket">[</span>
+    <input type="text" placeholder="請輸入訂單編號">
+    <button class="search-s">
+      <img src="search.png" alt="搜尋">
+    </button>
+    <span class="bracket">]</span>
+  </div>
+
+  <!-- 表格 -->
+  <table class="order-table">
+    <!-- 表頭列 -->
+    <tr>
+      <th>訂單編號</th>
+      <th>訂購日期</th>
+      <th>總金額</th>
+      <th>訂單狀態</th>
+      <th>動作</th>
+    </tr>
+
+    <!-- 資料列 -->
+    <tr>
+      <td>KB1768</td>
+      <td>2025/11/20</td>
+      <td>$1,500</td>
+      <td>待出貨</td>
+      <td><a href="#" class="detail-s">[查看詳情]</a></td>
+    </tr>
+
+    <tr>
+      <td>KL3978</td>
+      <td>2025/6/10</td>
+      <td>$7,430</td>
+      <td>已出貨</td>
+      <td><a href="#" class="detail-s">[查看詳情]</a></td>
+    </tr>
+
+    <tr>
+      <td>KA7217</td>
+      <td>2025/12/10</td>
+      <td>$8,733</td>
+      <td>待出貨</td>
+      <td><a href="#" class="detail-s">[查看詳情]</a></td>
+    </tr>
+
+    <tr>
+      <td>BC1038</td>
+      <td>2025/12/12</td>
+      <td>$10,345</td>
+      <td>待出貨</td>
+      <td><a href="#" class="detail-s">[查看詳情]</a></td>
+    </tr>
+
+    <tr>
+      <td>LT1237</td>
+      <td>2025/11/11</td>
+      <td>$13,729</td>
+      <td>已出貨</td>
+      <td><a href="#" class="detail-s">[查看詳情]</a></td>
+    </tr>
+  </table>
+</div>
+</div>
+
+<!-- ===== 會員介面 ===== -->
+<div class="box" id="member">
+  <h1>會員介面</h1>
+  <div class="member-box">
+  <p>姓名：王小美</p>
+  <p>性別：女</p>
+  <p>生日：2003/04/23</p>
+  <p>地址：桃園市中壢區</p>
+  <p>電話：0912-345-678</p>
+  <p>
+  <a href="#order-history" class="history-link">歷史紀錄</a>
+  </p>
+  </div>
+  </div>
+</body>
+</html>
+
