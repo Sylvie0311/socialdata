@@ -1,0 +1,250 @@
+*{
+    box-sizing: border-box;
+    margin:0px;
+    padding:0px;
+}
+
+body{
+    font-family: 'Noto Sans TC', serif;
+}
+
+h1{
+    text-align: center;
+    margin-bottom: 20px;
+    border-bottom: 2px solid #000;
+    padding-bottom: 10px;
+}
+
+.review-box {
+    height: 550px;
+    width: 60%;
+    border: 2px solid #000;
+}
+
+/* 單一評論 */
+.review-items {
+    margin: 0px auto;
+    padding: 20px;
+    max-width: 600px;
+    position: relative;
+    right: 60px;
+}
+
+/* 圖片區塊 */
+.product-img {
+    width: 80px;
+    height: 80px;
+    background-color: #eee;
+    border-radius: 8px;
+    margin-right: 20px;
+}
+  
+  /* 評論內容 */
+.review-content {
+    flex: 1;
+}
+  
+.product-name {
+    font-weight: bold;
+    font-size: 18px;
+    margin-top: 5px;
+    color: #444;
+}
+
+.date {
+    font-size: 14px;
+    color: #888;
+    margin-bottom: 5px;
+}
+/*星星*/
+.stars {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: left;
+  }
+  
+.stars input {
+    display: none;
+}
+  
+.stars label {
+    font-size: 20px;
+    color: #ccc;
+    cursor: pointer;
+    transition: color 0.2s;
+}
+  
+  /* 滑鼠移上去時，該星星和前面的星星變色 */
+.stars label:hover,
+.stars label:hover ~ label {
+    color: gold;
+}
+  
+  /* 點選星星後，該星星和前面的星星變色 */
+.stars input:checked ~ label {
+    color: gold;
+}
+
+.outer {
+    width: 90%;
+    margin: 30px auto;
+    border: 2px solid black;
+    padding: 20px;
+}
+
+.outer h1 {
+    text-align: center;
+    border-bottom: 2px solid black;
+    padding-bottom: 10px;
+}
+
+.cards {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 30px;
+}
+
+.card {
+    width: 180px;
+    border: 2px solid black;
+    text-align: center;
+    padding: 20px 10px;
+}
+
+.circle {
+    width: 120px;
+    height: 120px;
+    border: 2px solid black;
+    border-radius: 50%;
+    margin: 0 auto 20px auto;
+}
+
+.card p {
+    margin: 6px 0;
+}
+/*這邊上面是星星的不要動*/
+
+
+.title {
+    padding: 10px;
+    border-bottom: 2px solid #000;
+    font-size: 18px;
+}
+  
+.review-item {
+    display: flex;
+    align-items: flex-start;
+    padding: 15px;
+    border-bottom: 1px solid #000;
+}
+  
+.product-img {
+    width: 80px;
+    height: 80px;
+    border: 2px solid #000;
+    margin-right: 15px;
+    background-color: #fff;
+}
+  
+.review-content {
+    flex: 1;
+}
+  
+.stars {
+    font-size: 14px;
+    letter-spacing: 3px;
+}
+  
+.date {
+    font-size: 14px;
+    margin: 5px 0;
+}
+  
+.comment {
+    font-size: 14px;
+    margin-bottom: 10px;
+}
+  
+.product-name {
+    font-size: 14px;
+}
+  
+.actions {
+    white-space: nowrap;
+    margin-left: 10px;
+}
+  
+.actions a {
+    color: #000;
+    text-decoration: none;
+    margin-left: 5px;
+}
+  
+.actions a:hover {
+    text-decoration: underline;
+}
+
+/*評論*/  
+.comment {
+    font-size: 16px;
+    color: #555;
+    margin-bottom: 5px;
+}
+  
+/* 編輯與刪除按鈕 */
+.actionss {
+    justify-content: right;
+    margin-left: 15px;
+    position: relative;
+    left: 600px;
+    bottom: 150px;
+}
+  
+.actionss a {
+    text-decoration: none;
+    color: #007bff;
+    font-size: 14px;
+    margin: 3px 0;
+    transition: color 0.2s;
+}
+  
+.actionss a:hover {
+    color: #0056b3;
+}
+  
+
+/*歷史訂單／消費紀錄：會員介面*/
+
+
+
+
+/* 我的評論標題 */
+.title {
+    padding: 10px;
+    font-size: 18px;
+    border-bottom: 2px solid #000;
+}
+  
+/* 搜尋列 */
+
+  
+/* 表格 */
+.order-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+/* 歷史紀錄連結 */
+.history-link{
+    color: blue;            
+    text-decoration: none;    
+    font-size: 18px;
+    cursor: pointer;
+}
+  
+/* 滑鼠移上去 */
+  .history-link:hover{
+    text-decoration: underline; 
+    color: darkblue;           
+}
+  
