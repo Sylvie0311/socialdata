@@ -143,42 +143,35 @@ aside{
 
 main{
     background-color:rgb(254, 203, 243);
-    /*background-image: url('../img/90094.jpg');*/
     width:85%;
     padding:10px;
     float:right;
 }
 /*動態廣告樣式 */
 .ad-group { 
-    width: 80%; /* 容器寬度需與圖片寬度一致 */
-    height: 550px; /* 根據您的圖片高度調整 */
+    width: 80%; 
+    height: 550px; 
     margin: 20px auto; 
-    position: relative; /* 關鍵：設定為相對定位，讓子元素可以絕對定位並重疊 */
-    overflow: hidden; /* 隱藏超出範圍的圖片，確保邊界整齊 */
+    position: relative; 
+    overflow: hidden; 
 }
 .slide-item {
-    position: absolute; /* 關鍵：讓所有圖片疊在一起 */
+    position: absolute; /*讓所有圖片疊在一起 */
     top: 0;
     left: 0;
     width: 100%; 
     height: 100%;
-    object-fit: cover; /* 確保圖片填滿容器且不變形 */
-    
-    /* 初始狀態：不可見 */
+    object-fit: cover; 
     opacity: 0; 
+    border-radius:20px;
+    border: solid rgb(162, 158, 161) 2px;
     
-    /* 動畫設定：9 秒週期，無限重複 */
     animation-name: slideshow;
     animation-duration: 9s; 
     animation-iteration-count: infinite; 
     animation-fill-mode: forwards;
 }
 @keyframes slideshow{
-    /* 淡入/顯示/淡出 區間：
-       0% - 11.11% (3秒) -> 第一張圖
-       33.33% - 44.44% (3秒) -> 第二張圖
-       66.66% - 77.77% (3秒) -> 第三張圖
-    */
 
     /* 淡入 (0% -> 3%) */
     0% { opacity: 0; }
@@ -209,12 +202,12 @@ main{
     position: absolute;
     bottom: 10px; 
     left: 50%;
-    transform: translateX(-50%); /* 水平置中 */
+    transform: translateX(-50%); 
     display: flex;
     gap: 10px; 
     z-index: 9999; /* 確保圓點在圖片上層 */
 }
-/* 圓點基礎樣式 */
+/* 圓點樣式 */
 .dot {
     display: block;
     width: 10px;
@@ -234,7 +227,6 @@ main{
     0%, 33.32% { background-color: #ea0be6; } /* 選中狀態顏色 (粉色) */
     33.33%, 100% { background-color: rgba(255, 255, 255, 0.5); } /* 未選中狀態 */
 }
-
 /* 圓點動畫延遲 - 必須與圖片一一對應 */
 .ad-dots .dot:nth-child(1) { animation-delay: 0s; }
 .ad-dots .dot:nth-child(2) { animation-delay: 3s; }
@@ -247,7 +239,15 @@ main{
     grid-template-rows: repeat(3,auto);
     gap:20px;
     margin:20px;
-    align-items: center;
+
+}
+
+.products img{
+    width:200px;
+    height:200px;
+    object-fit: contain;
+    align-items: center; /* 垂直置中 */
+    justify-items: center;  /* 水平置中*/
 }
 .product {
     text-align: center; 
@@ -283,6 +283,45 @@ main{
     color: inherit; /*確保連結樣式不會蓋過h3、p的樣式*/
 
 }
+/* 分頁容器 */
+.pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 50px 0;
+    gap: 15px;
+}
+/* 數字與箭頭按鈕 */
+.pagination span {
+    cursor: pointer;
+    font-size: 1.2rem;
+    font-weight: bold;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: 0.1s;
+    color: #555;
+    border-radius: 10px; 
+}
+.cheveron{
+    width:40px;
+    height:40px;
+}
+.pagination span.active {
+    background-color: #93abd3; 
+    color: white;
+}
+.pagination span:hover:not(.active) {
+    background-color: #c5e9f1;
+    color:white;
+}
+.pagination .arrow {
+    font-size: 1.5rem;
+    color: #c5e9f1;
+}
+
 
 footer{
     background-color: #fb6f92;
