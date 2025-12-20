@@ -1,13 +1,8 @@
 /*商品介面+首頁*/ 
+/*搜尋*/ 
 document.addEventListener('DOMContentLoaded', function() {
-    // 1. 取得 DOM 元素
     const searchIcon = document.getElementById('search-icon');
     const searchInput = document.getElementById('search-input');
-
-    // 2. 設置初始狀態（確保頁面載入時是隱藏的，雖然 CSS 已經做了）
-    // 這裡我們依賴 CSS 預設的 display: none
-
-    // 3. 監聽圖片的點擊事件
     searchIcon.addEventListener('click', function() {
         // 使用 classList.toggle() 來切換 .show-search 這個類別
         // 如果輸入欄現在是隱藏的 (沒有 .show-search)，點擊後就會加上它 (顯示)
@@ -20,21 +15,69 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 });
+/*aside連結不同的商品介面*/
+document.addEventListener('DOMContentLoaded', function() {
+    // 給定所有商品的資料庫
+    const allProducts = {
+        //蘇菲
+        'sofy_175cm': {name: "蘇菲日用天然原生棉 量少型17.5cm", price: "$139/包", intro: "量少型專用，給您極致輕薄的防護體驗。", img: "../img/天然原生棉(量少型).png"},
+        'sofy_23cm': {name: "日用23cm 天然原生棉 極薄0.1型", price: "$99/包", intro: "蘇菲日用23cm，超薄0.1cm 彷彿沒穿一般零觸感表層，柔滑細緻。", img: "../img/天然原生棉(極薄0.1型).png"},
+        'sofy_26cm':{name: "蘇菲 日用天然原生棉 超薄型26cm", price: "$119/包", img: "../img/天然原生棉(超薄型26cm).png", intro: "加長日用款，吸收力升級，給您更全面的防護。"},
+        'sofy_29cm': { name: "蘇菲 夜用天然原生棉 超薄型29cm", price: "$129/包", img: "../img/天然原生棉(超薄型29cm).png", intro: "夜用基礎款，天然棉柔觸感，呵護生理期敏感肌膚。" },
+        'sofy_28cm': { name: "蘇菲 超薄夜用型28cm",price: "$159/包",  img: "../img/超薄 夜用型.png", intro: "超薄瞬吸體，快速吸收不回滲，夜間活動依然自在。" },
+        //蕾妮雅
+        'laurier_225cm': { name: "蕾妮亞 零觸感特薄 22.5cm", price: "$109/包", img: "../img/蕾妮亞零觸感特薄(22.5cm).png", intro: "極致特薄設計，瞬吸乾爽，讓您忘記生理期的存在。" },
+        'laurier_25cm': { name: "蕾妮亞 零觸感羽感棉 25cm", price: "$129/包", img: "../img/零觸感羽感棉(25cm).png", intro: "量多日用首選，羽感表層溫柔呵護肌膚。" },
+        'laurier_30cm': { name: "蕾妮亞 零觸感羽感棉 30cm", price: "$139/包", img: "../img/零觸感羽感棉(30cm).png", intro: "夜用羽感棉，加寬尾翼防止後漏。" },
+        'laurier_35cm': { name: "蕾妮亞 零觸感羽感棉 35cm", price: "$149/包", img: "../img/零觸感羽感棉(35cm).jpg", intro: "大流量夜用推薦，超薄吸收體不悶熱。" },
+        'laurier_40cm': { name: "蕾妮亞 零觸感羽感棉 40cm", price: "$159/包", img: "../img/零觸感羽感棉(40cm).jpg", intro: "40cm極長守護，徹底翻身也不擔心滲漏。" },
+        'laurier_pad': { name: "蕾妮亞 淨妍護墊 透氣海藍無香", price: "$99/包", img: "../img/蕾妮亞淨妍護墊(透氣海藍無香).jpg", intro: "高透氣設計，無香料負擔，純淨呵護。" },
+        //靠得住
+        'kotex_23cm': { name: "靠得住 茶樹沁涼 涼感衛生棉 23cm", price: "$100/包", img: "../img/茶樹沁涼 涼感衛生棉.jpg", intro: "添加茶樹精油，微涼舒爽，告別夏天悶熱感。" },
+        'kotex_35cm': { name: "靠得住 完美封漏夜用衛生棉 35cm", price: "$99/包", img: "../img/完美封漏夜用衛生棉.jpg", intro: "3重防漏側邊，翻身零死角，量多夜晚最安心。" },
+        'kotex_pad': { name: "靠得住 梔子花香氛護墊", price: "$89/包", img: "../img/梔子花香氛護墊.jpg", intro: "優雅梔子花香，專利除臭技術，清爽自信。" },
+        'kotex_28cm': { name: "靠得住 茶樹舒涼夜用衛生棉 28cm", price: "$149/包", img: "../img/茶樹舒涼夜用衛生棉.jpg", intro: "夜用涼感系列，舒緩燥熱，提供整夜清爽。" },
+        //康乃馨
+        'carnation_215cm': { name: "康乃馨 御守棉超薄 一般流量 21.5cm", price: "$100/包", img: "../img/御守棉超薄衛生棉  一般流量.jpg", intro: "適合一般日用，超薄設計讓運動穿搭不尷尬。" },
+        'carnation_28cm': { name: "康乃馨 御守棉超薄 量多加長 28cm", price: "$129/包", img: "../img/御守棉超薄衛生棉(量多加長).jpg", intro: "加長防護，量多日用的不二選擇。" },
+        'carnation_255cm': { name: "康乃馨 超薄蝶型衛生棉 量多型 25.5cm", price: "$139/包", img: "../img/超薄蝶型衛生棉  量多型.jpg", intro: "經典蝶翼設計，穩定不移位，吸力強勁。" },
+        'carnation_pad': { name: "康乃馨 香草花園護墊 向日葵", price: "$99/包", img: "../img/香草花園護墊(向日葵).jpg", intro: "清甜香氣，柔軟表層，給您如花園般的舒適感。" },
+        'carnation_36cm': { name: "康乃馨 御守棉夜用超長 36cm", price: "$149/包", img: "../img/御守棉夜用超長.jpg", intro: "御守棉系列，瞬吸防漏，守護每個不安穩的夜晚。" },
+        'carnation_40cm': { name: "康乃馨 御守棉夜用極長 40cm", price: "$159/包", img: "../img/御守棉夜用極長.jpg", intro: "旗艦級40cm長度，全方位阻截後漏。" },
+        'carnation_365cm': { name: "康乃馨 輕柔美學安睡棉 36.5cm", price: "$159/包", img: "../img/輕柔美學安睡棉.jpg", intro: "專為睡眠設計，全方位彈性包覆，享受安穩睡眠。" }
+    };
 
-/*商品頁面數量加減號*/ 
-const minusBtn = document.getElementById('btn-minus');
-const addBtn = document.getElementById('btn-add');
-const qtyInput = document.getElementById('quantity-input');
+    
+    const urlParams = new URLSearchParams(window.location.search);
+    const productId = urlParams.get('id');
 
-addBtn.onclick = () => {
-    let val = parseInt(qtyInput.value);                                                                    
-    if (val < 99) qtyInput.value = val + 1;
-};
+    
+    if (productId && allProducts[productId]) {
+        const data = allProducts[productId];
+        document.getElementById('p-name').innerText = data.name;
+        document.getElementById('p-price').innerText = data.price;
+        document.getElementById('p-intro').innerText = data.intro;
+        document.getElementById('p-img').src = data.img;
+    }
+    
 
-minusBtn.onclick = () => {
-    let val = parseInt(qtyInput.value);
-    if (val > 1) qtyInput.value = val - 1;
-};
+    /* 數量鍵的加減號 */
+    const minusBtn = document.getElementById('btn-minus');
+    const addBtn = document.getElementById('btn-add');
+    const qtyInput = document.getElementById('quantity-input');
+
+    if (addBtn && minusBtn) {
+        addBtn.onclick = () => {
+            let val = parseInt(qtyInput.value);
+            if (val < 99) qtyInput.value = val + 1;
+        };
+        minusBtn.onclick = () => {
+            let val = parseInt(qtyInput.value);
+            if (val > 1) qtyInput.value = val - 1;
+        };
+    }
+});
+
 /*儲存商品介面中的'加入購物車'的資訊(ex:購買商品及數量)到cart.html*/ 
 document.addEventListener('DOMContentLoaded', function() {
     const addToCartBtn = document.getElementById('add-to-cart');
@@ -59,4 +102,63 @@ document.addEventListener('DOMContentLoaded', function() {
             window.location.href = '../html/cart.html';
         });
     }
+});
+/*main底下的跳轉頁面按鈕*/
+// 1. 全域變數與配置
+window.currentPage = 1; 
+const pageConfig = {
+    1: { prefix: 'sofy' },
+    2: { prefix: 'laurier' },
+    3: { prefix: 'kotex' },
+    4: { prefix: 'carnation' }
+};
+
+// 2. 定義切換頁面的全域函式 (給 onclick 使用)
+window.changePage = function(pageNum) {
+    // 檢查範圍，防止箭頭點出界
+    if (pageNum < 1 || pageNum > 4) return;
+    
+    window.currentPage = pageNum;
+
+    // 執行渲染商品
+    renderProducts(pageNum);
+
+    // 切換按鈕的 CSS 樣式
+    document.querySelectorAll('.page-num').forEach(el => el.classList.remove('active'));
+    const activeBtn = document.getElementById(`page-${pageNum}`);
+    if (activeBtn) activeBtn.classList.add('active');
+    
+    // 自動滾動到商品區
+    document.getElementById('product-container').scrollIntoView({ behavior: 'smooth' });
+};
+
+// 3. 渲染商品的函式
+function renderProducts(page) {
+    const container = document.getElementById('product-container');
+    if (!container) return;
+
+    const prefix = pageConfig[page].prefix;
+    container.innerHTML = ''; // 清空
+
+    for (let id in allProducts) {
+        if (id.startsWith(prefix)) {
+            const item = allProducts[id];
+            // 修正圖片路徑：首頁 index.html 引用 img/ 不需 ../
+            const imgSrc = item.img.replace('../', '');
+            
+            container.innerHTML += `
+                <div class="product">
+                    <a href="html/product_main.html?id=${id}">
+                        <img src="${imgSrc}" alt="${item.name}">
+                        <h3>${item.name}</h3>
+                        <p>價格: ${item.price}</p>
+                    </a>
+                </div>`;
+        }
+    }
+}
+
+// 4. 當網頁載入完成時，預設顯示第一頁
+document.addEventListener('DOMContentLoaded', () => {
+    renderProducts(1);
 });
