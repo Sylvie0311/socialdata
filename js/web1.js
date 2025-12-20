@@ -205,3 +205,51 @@ document.addEventListener('DOMContentLoaded', function() {
         adGroup.innerHTML = htmlContent;
     }
 });
+
+/* =========================================================
+   搜尋欄
+   ========================================================= */
+document.addEventListener('DOMContentLoaded', function() {
+    const searchInput = document.getElementById('search-input');
+    const container = document.getElementById('product-container');
+
+    if (searchInput && container) {
+        searchInput.addEventListener('keypress', function (e) {
+            if (e.key === 'Enter') {
+                const keyword = searchInput.value.trim();
+                
+                if (keyword === "") {
+                    alert("請輸入關鍵字！");
+                    return;
+                }
+
+                container.innerHTML = ''; 
+                let found = false;        
+
+                for (let id in allProducts) {
+                    const item = allProducts[id];
+                    if (item.name.includes(keyword)) {
+                        const imgSrc = item.img.replace('../', '');
+                        
+                        container.innerHTML += `
+                            <div class="product">
+                                <a href="html/product_main.html?id=${id}">
+                                    <img src="${imgSrc}" alt="${item.name}">
+                                    <h3>${item.name}</h3>
+                                    <p>價格: ${item.price}</p>
+                                </a>
+                            </div>`;
+                        found = true;
+                    }
+                }
+
+                if (!found) {
+                    container.innerHTML = '<p style="padding:20px; font-size:1.2rem; color:#555;">找不到相關商品。</p>';
+                }
+                
+                const pagination = document.querySelector('.pagination');
+                if(pagination) pagination.style.display = 'none';
+            }
+        });
+    }
+});
