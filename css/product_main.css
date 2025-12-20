@@ -32,7 +32,7 @@ header img{
     align-items: center;
     justify-content:center;
     overflow:hidden;
-    margin-bottom: 20px;;
+    margin-bottom: 20px;
 }
 .product-picture img{
     max-width:550px;
@@ -156,3 +156,4 @@ header img{
     border: 1px solid #22dcf1;
     border-radius: 30px;
 }
+
