@@ -104,7 +104,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 });
 /*main底下的跳轉頁面按鈕*/
-// 1. 全域變數與配置
+// 全域變數與配置
 window.currentPage = 1; 
 const pageConfig = {
     1: { prefix: 'sofy' },
@@ -113,26 +113,26 @@ const pageConfig = {
     4: { prefix: 'carnation' }
 };
 
-// 2. 定義切換頁面的全域函式 (給 onclick 使用)
+//定義切換頁面的全域函式 (給 onclick 使用)
 window.changePage = function(pageNum) {
     // 檢查範圍，防止箭頭點出界
     if (pageNum < 1 || pageNum > 4) return;
     
     window.currentPage = pageNum;
 
-    // 執行渲染商品
+    
     renderProducts(pageNum);
 
-    // 切換按鈕的 CSS 樣式
+    
     document.querySelectorAll('.page-num').forEach(el => el.classList.remove('active'));
     const activeBtn = document.getElementById(`page-${pageNum}`);
     if (activeBtn) activeBtn.classList.add('active');
     
-    // 自動滾動到商品區
+    
     document.getElementById('product-container').scrollIntoView({ behavior: 'smooth' });
 };
 
-// 3. 渲染商品的函式
+
 function renderProducts(page) {
     const container = document.getElementById('product-container');
     if (!container) return;
@@ -143,7 +143,7 @@ function renderProducts(page) {
     for (let id in allProducts) {
         if (id.startsWith(prefix)) {
             const item = allProducts[id];
-            // 修正圖片路徑：首頁 index.html 引用 img/ 不需 ../
+            //首頁 index.html 引用 img/ 不需 ../
             const imgSrc = item.img.replace('../', '');
             
             container.innerHTML += `
@@ -158,7 +158,7 @@ function renderProducts(page) {
     }
 }
 
-// 4. 當網頁載入完成時，預設顯示第一頁
+//預設顯示第一頁
 document.addEventListener('DOMContentLoaded', () => {
     renderProducts(1);
 });
