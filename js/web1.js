@@ -162,7 +162,7 @@ function renderProducts(page) {
             
             container.innerHTML += `
                 <div class="product">
-                    <a href="../html/product_main.html?id=${id}">
+                    <a href="html/product_main.html?id=${id}">
                         <img src="${imgSrc}" alt="${item.name}">
                         <h3>${item.name}</h3>
                         <p>價格: ${item.price}</p>
@@ -176,3 +176,4 @@ function renderProducts(page) {
 document.addEventListener('DOMContentLoaded', () => {
     renderProducts(1);
 });
+
