@@ -177,3 +177,31 @@ document.addEventListener('DOMContentLoaded', () => {
     renderProducts(1);
 });
 
+/* =========================================================
+   動態廣告
+   ========================================================= */
+document.addEventListener('DOMContentLoaded', function() {
+    const adGroup = document.querySelector('.ad-group');
+
+    if (adGroup) {
+   
+        const adsData = [
+            { img: '../img/banner1.jpg', link: 'product_main.html?id=sofy_23cm' }, 
+            { img: '../img/banner2.jpg', link: 'sign.html' },                      
+            { img: '../img/banner3.jpg', link: 'https://www.google.com' }         
+        ];
+
+        let htmlContent = '';
+        adsData.forEach((ad, index) => {
+            const target = ad.link.startsWith('http') ? '_blank' : '_self';
+            
+            htmlContent += `
+                <a href="${ad.link}" target="${target}" style="animation-delay: ${index * 3}s">
+                    <img src="${ad.img}" class="slide-item" alt="廣告${index+1}">
+                </a>
+            `;
+        });
+
+        adGroup.innerHTML = htmlContent;
+    }
+});
