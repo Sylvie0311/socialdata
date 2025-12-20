@@ -8,16 +8,35 @@ body{
     font-family:'Noto Serif TC', serif;
     background-image: url("../img/90519.jpg");
 }
-.sofy {
+header a{
+   font-size: 18px;
+   text-decoration: none;
+   color:rgb(74, 6, 6);
+}
+header img{
+    width:40px;
+    height:40px;
+    margin:20px;
+    float:left;
+}
+.product_container {
     max-width: 600px;  
     margin: 0 auto;  
     padding: 20px;
     background-color: #ffe5ec;
 }
-.product-picture img{
-    max-width:550px;
+.product-picture{
+    display:flex;
+    width:100%;
+    height:auto;
     align-items: center;
     justify-content:center;
+    overflow:hidden;
+    margin-bottom: 20px;;
+}
+.product-picture img{
+    max-width:550px;
+    
 }
 .product-name p{
     font-size: 30px;
