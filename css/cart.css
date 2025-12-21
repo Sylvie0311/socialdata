@@ -5,7 +5,7 @@
 }
 body {
     font-family: "Noto Sans TC", Arial, sans-serif;
-    background-color: #f5f5f5;
+    background-color: #ffe5ec;
     margin: 0;
     padding: 20px;
 }
@@ -16,6 +16,7 @@ body {
     align-items: center;
     border-bottom: 2px solid #1c355e;
     padding: 10px;
+    margin-bottom: 10px;
 }
   
 .back-s {
@@ -37,7 +38,15 @@ body {
     display: flex;
     align-items: center;
     padding: 15px;
-    border-bottom: 2px solid #1c355e;
+    margin-bottom: 15px;
+    border-radius: 10px;
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);/*陰影效果*/
+    transition: transform 0.2s ease;
+}
+
+.card-item:hover{
+    transition: translateY(-3px);/*鼠標到位時微微浮起*/
 }
   
 .item-img {
@@ -78,11 +87,14 @@ body {
     background: #fff;
     font-size: 16px;
     cursor: pointer;
+    border-radius: 6px;
+    transition: all 0.2s ease;
 }
 
 .qty-s:hover {
     background: #1c355e;
     color: #fff;
+    transform: scale(1.05);
 }
 
 .qty-num {
@@ -96,9 +108,17 @@ body {
     display: flex;
     justify-content: flex-end; /* 讓內容靠右排列 */
     align-items: center;
-    padding: 15px;
-    border-top: 2px solid #1c355e;
+    border-radius: 6px;
     gap: 20px; /* 總金額和按鈕之間留間距 */
+
+
+    /*固定在底下*/
+    position: sticky;
+    bottom: 0px;
+    background: #fca0b7;
+    padding: 15px;
+    margin-top: 20px;
+    box-shadow: 0 -2px 6px rgba(0,0,0,0.1);
   }
   
 .total {
@@ -112,10 +132,25 @@ body {
     background: #fff;
     font-weight: bold;
     cursor: pointer;
+    border-radius: 6px;
+    transition: all 0.2s ease;
 }
   
 .buy-s:hover {
     background: #1c355e;
     color: #fff;
+    transform: scale(1.05);
 }
-  
+
+#order-info{
+    margin-top: 20px;;
+    padding: 15px;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+#order-info h2{
+    margin-bottom: 10px;
+    color: #1c355e;
+}
