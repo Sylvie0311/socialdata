@@ -300,48 +300,92 @@ document.addEventListener('DOMContentLoaded', () => {
 /* =========================================================
    搜尋欄
    ========================================================= */
-document.addEventListener('DOMContentLoaded', function() {
+   document.addEventListener('DOMContentLoaded', function() {
+    console.log('DOMContentLoaded 觸發');
+    
     const searchInput = document.getElementById('search-input');
     const container = document.getElementById('product-container');
 
+    console.log('搜尋輸入框:', searchInput);
+    console.log('商品容器:', container);
+    console.log('allProducts:', typeof allProducts !== 'undefined' ? Object.keys(allProducts).length + ' 個商品' : '未定義');
+
     if (searchInput && container) {
         searchInput.addEventListener('keypress', function (e) {
+            console.log('按鍵:', e.key);
+            
             if (e.key === 'Enter') {
-                const keyword = searchInput.value.trim();
-                
-                if (keyword === "") {
-                    alert("請輸入關鍵字！");
-                    return;
-                }
-
-                container.innerHTML = ''; 
-                let found = false;        
-
-                for (let id in allProducts) {
-                    const item = allProducts[id];
-                    if (item.name.includes(keyword)) {
-                        const imgSrc = item.img.replace('../', '');
-                        
-                        container.innerHTML += `
-                            <div class="product">
-                                <a href="html/product_main.html?id=${id}">
-                                    <img src="${imgSrc}" alt="${item.name}">
-                                    <h3>${item.name}</h3>
-                                    <p>價格: ${item.price}</p>
-                                </a>
-                            </div>`;
-                        found = true;
-                    }
-                }
-
-                if (!found) {
-                    container.innerHTML = '<p style="padding:20px; font-size:1.2rem; color:#555;">找不到相關商品。</p>';
-                }
-                
-                const pagination = document.querySelector('.pagination');
-                if(pagination) pagination.style.display = 'none';
+                console.log('執行搜尋...');
+                performSearch();
             }
         });
+
+        const searchBtn = document.getElementById('search-btn');
+        if (searchBtn) {
+            console.log('找到搜尋按鈕');
+            searchBtn.addEventListener('click', performSearch);
+        }
+
+        function performSearch() {
+            const keyword = searchInput.value.trim().toLowerCase();
+            console.log('搜尋關鍵字:', keyword);
+            
+            if (keyword === "") {
+                alert("請輸入關鍵字！");
+                return;
+            }
+
+            if (typeof allProducts === 'undefined') {
+                console.error('allProducts 未定義！');
+                alert("商品資料未載入，請檢查 products.js 是否正確引入");
+                return;
+            }
+
+            container.innerHTML = ''; 
+            let found = false;
+            let resultCount = 0;
+
+            for (let id in allProducts) {
+                const item = allProducts[id];
+                console.log('檢查商品:', item.name);
+ 
+                if (item.name.toLowerCase().includes(keyword)) {
+                    resultCount++;
+                    console.log('找到匹配:', item.name);
+                    
+                    let imgSrc = item.img;
+                    if (imgSrc.startsWith('../')) {
+                        imgSrc = imgSrc.substring(3); 
+                    }
+                    
+                    container.innerHTML += `
+                        <div class="product">
+                            <a href="html/product_main.html?id=${id}">
+                                <img src="${imgSrc}" alt="${item.name}" loading="lazy">
+                                <h3>${item.name}</h3>
+                                <p>價格: ${item.price}</p>
+                            </a>
+                        </div>`;
+                    found = true;
+                }
+            }
+
+            console.log('搜尋完成，找到 ' + resultCount + ' 個結果');
+
+            if (!found) {
+                container.innerHTML = `<p style="padding:20px; font-size:1.2rem; color:#999; text-align:center;">
+                    找不到「${keyword}」相關商品
+                </p>`;
+            }
+
+            const pagination = document.querySelector('.pagination');
+            if (pagination) {
+                pagination.style.display = 'none';
+            }
+        }
+    } else {
+        console.error('搜尋欄或容器未找到！');
+        console.error('搜尋輸入框 ID:', searchInput ? '找到' : '找不到');
+        console.error('商品容器 ID:', container ? '找到' : '找不到');
     }
 });
-
