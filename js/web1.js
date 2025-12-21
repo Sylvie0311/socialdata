@@ -178,31 +178,122 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 /* =========================================================
-   動態廣告
+     動態廣告
    ========================================================= */
-document.addEventListener('DOMContentLoaded', function() {
+   document.addEventListener('DOMContentLoaded', function() {
     const adGroup = document.querySelector('.ad-group');
 
     if (adGroup) {
-   
         const adsData = [
-            { img: '../img/banner1.jpg', link: 'product_main.html?id=sofy_23cm' }, 
-            { img: '../img/banner2.jpg', link: 'sign.html' },                      
-            { img: '../img/banner3.jpg', link: 'https://www.google.com' }         
+            { 
+                img: 'img/kotex廣告.jpg', 
+                link: 'html/product_main.html?id=kotex_28cm' 
+            },
+            { 
+                img: 'img/蕾妮亞廣告.jpg', 
+                link: 'html/product_main.html?id=laurier_30cm' 
+            },
+            { 
+                img: 'img/167966.jpg', 
+                link: 'html/product_main.html?id=sofy_23cm' 
+            }
         ];
 
         let htmlContent = '';
+        
         adsData.forEach((ad, index) => {
             const target = ad.link.startsWith('http') ? '_blank' : '_self';
-            
+            const opacity = index === 0 ? '1' : '0';
+            const pointerEvents = index === 0 ? 'auto' : 'none';
+            const zIndex = index === 0 ? '10' : '0';
+
             htmlContent += `
-                <a href="${ad.link}" target="${target}" style="animation-delay: ${index * 3}s">
-                    <img src="${ad.img}" class="slide-item" alt="廣告${index+1}">
+                <a href="${ad.link}" target="${target}" class="slide-link" 
+                   style="opacity: ${opacity}; pointer-events: ${pointerEvents}; z-index: ${zIndex}; 
+                          transition: opacity 0.5s ease; position: absolute; top: 0; left: 0; width: 100%;">
+                    <img src="${ad.img}" class="ad-image slide-item" alt="廣告${index+1}" style="width:100%; display:block;">
                 </a>
             `;
         });
 
         adGroup.innerHTML = htmlContent;
+
+        const dotsContainer = document.createElement('div');
+        dotsContainer.className = 'ad-dots';
+        dotsContainer.style.cssText = `
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 12px;
+            z-index: 20;
+        `;
+
+        adsData.forEach((_, index) => {
+            const dot = document.createElement('span');
+            dot.className = 'ad-dot';
+            dot.dataset.index = index;
+            dot.style.cssText = `
+                width: 12px;
+                height: 12px;
+                border-radius: 50%;
+                background-color: ${index === 0 ? 'white' : 'rgba(255, 255, 255, 0.5)'};
+                cursor: pointer;
+                transition: background-color 0.3s ease;
+            `;
+            dotsContainer.appendChild(dot);
+        });
+
+        adGroup.appendChild(dotsContainer);
+
+        const slides = document.querySelectorAll('.slide-link');
+        const dots = document.querySelectorAll('.ad-dot');
+        let currentIndex = 0;
+        const totalSlides = slides.length;
+        let autoPlayInterval;
+
+        function goToSlide(index) {
+            slides.forEach((slide, i) => {
+                slide.style.opacity = i === index ? '1' : '0';
+                slide.style.pointerEvents = i === index ? 'auto' : 'none';
+                slide.style.zIndex = i === index ? '10' : '0';
+            });
+
+            dots.forEach((dot, i) => {
+                dot.style.backgroundColor = i === index ? 'white' : 'rgba(255, 255, 255, 0.5)';
+            });
+
+            currentIndex = index;
+            clearInterval(autoPlayInterval);
+            startAutoPlay();
+        }
+
+        function startAutoPlay() {
+            autoPlayInterval = setInterval(() => {
+                const nextIndex = (currentIndex + 1) % totalSlides;
+                goToSlide(nextIndex);
+            }, 3000);
+        }
+
+        dots.forEach(dot => {
+            dot.addEventListener('click', () => {
+                const index = parseInt(dot.dataset.index);
+                goToSlide(index);
+            });
+        });
+
+
+        dots.forEach(dot => {
+            dot.addEventListener('mouseenter', () => {
+                dot.style.transform = 'scale(1.3)';
+            });
+            dot.addEventListener('mouseleave', () => {
+                dot.style.transform = 'scale(1)';
+            });
+        });
+
+        startAutoPlay();
     }
 });
 
@@ -253,3 +344,4 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 });
+
