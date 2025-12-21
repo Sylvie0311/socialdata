@@ -56,105 +56,185 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 });
 
-  /* =========================================================
-   總額計算、數量加減、結帳按鈕、返回箭頭
+ /* =========================================================
+   購物車頁面：商品累加、修改、刪除、結帳
    ========================================================= */
-document.addEventListener('DOMContentLoaded', function() {
+   document.addEventListener('DOMContentLoaded', function() {
     
     const cartContainer = document.getElementById('cart-content');
     const totalDisplay = document.getElementById('totalPrice');
     const backBtn = document.querySelector('.back-s');
-    const checkoutBtn = document.querySelector('.buy-s'); 
+    const checkoutBtn = document.querySelector('.buy-s');
 
-    function advancedRenderCart() {
-        let savedData = localStorage.getItem('cartItem');
-        let item = savedData ? JSON.parse(savedData) : null;
+    console.log('購物車容器:', cartContainer);
+    console.log('總金額顯示:', totalDisplay);
 
-        if (cartContainer && item && item.quantity > 0) {
-        
-            let currentTotal = item.price * item.quantity;
+    setTimeout(function() {
+        const reviewItems = document.querySelectorAll('.review-items');
+        console.log('找到 review-items 個數:', reviewItems.length);
+        reviewItems.forEach(item => {
+            item.style.display = 'none';
+        });
 
+        const allDivs = document.querySelectorAll('div');
+        allDivs.forEach(div => {
+            if (div.innerText.includes('商品 A') || div.innerText.includes('商品 B')) {
+                div.style.display = 'none';
+            }
+        });
+
+        const cartItems = document.querySelectorAll('.cart-item');
+        for (let i = 0; i < Math.min(2, cartItems.length); i++) {
+            if (cartItems[i].innerText.includes('商品 A') || cartItems[i].innerText.includes('商品 B')) {
+                cartItems[i].style.display = 'none';
+            }
+        }
+
+        console.log('虛假商品已隱藏');
+    }, 100);
+
+    function getCart() {
+        let cart = localStorage.getItem('cart');
+        return cart ? JSON.parse(cart) : [];
+    }
+
+    function saveCart(cart) {
+        localStorage.setItem('cart', JSON.stringify(cart));
+    }
+
+    function calculateTotal(cart) {
+        return cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+    }
+
+    function renderCart() {
+        let cart = getCart();
+
+        if (!cartContainer) {
+            console.error('找不到 #cart-content');
+            return;
+        }
+
+        if (cart.length === 0) {
             cartContainer.innerHTML = `
-                <div class="cart-item" style="border-bottom: 2px solid #1c355e; padding: 15px; display: flex; align-items: center;">
-                    <div class="item-img" style="width: 90px; margin-right: 15px;">
-                        <img src="${item.image}" alt="${item.name}" style="width: 100%;">
-                    </div>
-                    <div class="item-info" style="flex: 1;">
-                        <div class="item-name" style="font-weight:bold; margin-bottom:10px;">${item.name}</div>
-                        <div class="item-qty" style="display: flex; align-items: center; gap: 10px;">
-                            <span>單價: $${item.price}</span>
-                            <button class="qty-s minus" id="btn-cart-minus" style="cursor:pointer; width:30px;">－</button>
-                            <span class="qty-num" style="font-weight:bold; font-size:18px;">${item.quantity}</span>
-                            <button class="qty-s plus" id="btn-cart-plus" style="cursor:pointer; width:30px;">＋</button>
+                <p style="padding:20px; text-align:center; color:#999;">購物車目前沒有商品</p>
+                <div style="text-align: center; padding: 20px;">
+                    <a href="../index.html" style="padding: 10px 20px; background: #e75480; color: white; text-decoration: none; border-radius: 4px; display: inline-block; cursor: pointer;">繼續購物</a>
+                </div>
+            `;
+            if (totalDisplay) totalDisplay.innerText = '0';
+            return;
+        }
+
+        cartContainer.innerHTML = '';
+
+        cart.forEach((item, index) => {
+            const itemTotal = item.price * item.quantity;
+
+            const cartItemHTML = `
+                <div class="cart-item" style="border-bottom: 2px solid #1c355e; padding: 15px; display: flex; align-items: center; justify-content: space-between;">
+                    
+                    <div style="display: flex; align-items: center; flex: 1;">
+                        <div class="item-img" style="width: 90px; margin-right: 15px;">
+                            <img src="${item.image}" alt="${item.name}" style="width: 100%; height: 90px; object-fit: cover; border-radius: 4px;">
                         </div>
+
+                        <div class="item-info" style="flex: 1;">
+                            <div class="item-name" style="font-weight:bold; margin-bottom:10px;">${item.name}</div>
+                            <div class="item-qty" style="display: flex; align-items: center; gap: 10px;">
+                                <span>單價: $${item.price}</span>
+                                <button class="qty-s minus" data-index="${index}" style="cursor:pointer; width:30px; border: 1px solid #ccc; background: white; border-radius: 4px;">−</button>
+                                <span class="qty-num" style="font-weight:bold; font-size:18px; min-width:30px; text-align:center;">${item.quantity}</span>
+                                <button class="qty-s plus" data-index="${index}" style="cursor:pointer; width:30px; border: 1px solid #ccc; background: white; border-radius: 4px;">+</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div style="text-align: right; margin-left: 20px;">
+                        <div style="font-size: 16px; font-weight:bold; color: #e75480; margin-bottom: 8px;">$${itemTotal}</div>
+                        <button class="btn-remove" data-index="${index}" style="cursor:pointer; padding: 6px 12px; background: #f0f0f0; border: 1px solid #ddd; border-radius: 4px; color: #666; font-size: 12px;">刪除</button>
                     </div>
                 </div>
             `;
 
-            if (totalDisplay) {
-                totalDisplay.innerText = currentTotal;
-            }
+            cartContainer.innerHTML += cartItemHTML;
+        });
 
-            document.getElementById('btn-cart-minus').onclick = function() { updateQty(-1); };
-            document.getElementById('btn-cart-plus').onclick = function() { updateQty(1); };
-
-        } else if (cartContainer) {
-            cartContainer.innerHTML = '<p style="padding:20px; text-align:center;">購物車目前沒有商品</p>';
-            if (totalDisplay) totalDisplay.innerText = "0";
+        const total = calculateTotal(cart);
+        if (totalDisplay) {
+            totalDisplay.innerText = total;
         }
+
+        console.log('購物車已渲染，商品數:', cart.length);
+
+        bindCartEvents();
     }
 
-    // --- 2. 數量更新邏輯 ---
-    window.updateQty = function(change) { 
-        let savedData = localStorage.getItem('cartItem');
-        if (savedData) {
-            let item = JSON.parse(savedData);
-            let newQty = item.quantity + change;
+    function bindCartEvents() {
+        let cart = getCart();
 
-            if (newQty < 1) {
-                let check = confirm("是否移除此商品？");
-                if (check) {
-                    localStorage.removeItem('cartItem');
+        document.querySelectorAll('.qty-s.minus').forEach(btn => {
+            btn.addEventListener('click', function() {
+                const index = parseInt(this.getAttribute('data-index'));
+                if (cart[index].quantity > 1) {
+                    cart[index].quantity--;
                 } else {
-                    return; 
+                    if (confirm('是否移除此商品？')) {
+                        cart.splice(index, 1);
+                    } else {
+                        return;
+                    }
                 }
-            } else {
-                item.quantity = newQty;
-                localStorage.setItem('cartItem', JSON.stringify(item));
-            }
-            advancedRenderCart();
-        }
-    };
+                saveCart(cart);
+                renderCart();
+            });
+        });
 
-    // --- 3. 結帳按鈕功能 ---
+        document.querySelectorAll('.qty-s.plus').forEach(btn => {
+            btn.addEventListener('click', function() {
+                const index = parseInt(this.getAttribute('data-index'));
+                cart[index].quantity++;
+                saveCart(cart);
+                renderCart();
+            });
+        });
+
+        document.querySelectorAll('.btn-remove').forEach(btn => {
+            btn.addEventListener('click', function() {
+                const index = parseInt(this.getAttribute('data-index'));
+                if (confirm('確定要刪除此商品？')) {
+                    cart.splice(index, 1);
+                    saveCart(cart);
+                    renderCart();
+                }
+            });
+        });
+    }
+
     if (checkoutBtn) {
         checkoutBtn.addEventListener('click', function() {
-            let savedData = localStorage.getItem('cartItem');
-            if (!savedData) {
-                alert("購物車是空的，無法結帳！");
-            } else {
-                let finalPrice = totalDisplay ? totalDisplay.innerText : 0;
-                alert(`結帳成功！總金額 $${finalPrice}\n謝謝您的購買！`);
-                localStorage.removeItem('cartItem'); 
-                advancedRenderCart(); 
-                // window.location.href = '../index.html'; 
+            let cart = getCart();
+            
+            if (cart.length === 0) {
+                alert('購物車是空的，無法結帳！');
+                return;
             }
+
+            const total = calculateTotal(cart);
+            const itemList = cart.map(item => `${item.name} x${item.quantity} = $${item.price * item.quantity}`).join('\n');
+            
+            const confirmMsg = `結帳成功！\n\n商品清單：\n${itemList}\n\n總金額：$${total}\n\n謝謝您的購買！`;
+            alert(confirmMsg);
+
+            localStorage.removeItem('cart');
+            renderCart();
         });
     }
 
-    // --- 4. 左上角返回箭頭功能 ---
     if (backBtn) {
         backBtn.addEventListener('click', function() {
-            if (document.referrer) {
-                window.history.back();
-            } else {
-                window.location.href = '../index.html';
-            }
+            window.location.href = '../index.html';
         });
     }
 
-    // 
-    advancedRenderCart();
+    renderCart();
 });
-
-
