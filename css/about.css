@@ -3,38 +3,47 @@
     margin: 0;
     padding: 0;
 }
-
+/*整體背景與字型設定*/
 body {
     font-family: "Microsoft JhengHei", sans-serif;
     background-color: #ffe5ec;
-}
-
-/* 外框 */
-.about-area {
-    width: 90%;
-    margin: 30px auto;
-    border: 2px solid black;
+    margin: 0;
     padding: 20px;
 }
 
+/*卡片區域容器:置中並限制寬度*/
+.card-area{
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px; /*卡片間距*/
+}
 
-/* 單一 */
+
+/* 單一卡片樣式*/
 .card {
-    width: 180px;
-    border: 2px solid black;
-    text-align: center;
+    background-color: #fff;
+    border-radius: 10px;
     padding: 20px 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    text-align: center;
+    height: 350px;
 }
 
 /* 圓形頭像 */
 .photo-box img {
-    width: 80%;  
-    height: 100%;  
+    width: 100px;  
+    height: 100px;  
     object-fit: cover; 
-    border-radius: 80%;
+    border-radius: 50%;
+    margin-bottom: 15px;
 }
   
-/* 文字間距 */
+/* 文字段落樣式 */
 .card p {
-    margin: 6px 0;
+    font-size: 14px;
+    color: #333;
+    margin-bottom: 10px;
+    line-height: 1.5;
 }
