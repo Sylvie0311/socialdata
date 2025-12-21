@@ -92,27 +92,53 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 
-/*儲存商品介面中的'加入購物車'的資訊(ex:購買商品及數量)到cart.html*/ 
-document.addEventListener('DOMContentLoaded', function() {
+/* =========================================================
+   加入購物車
+   ========================================================= */
+   document.addEventListener('DOMContentLoaded', function() {
     const addToCartBtn = document.getElementById('add-to-cart');
     const qtyInput = document.getElementById('quantity-input');
 
     if (addToCartBtn) {
         addToCartBtn.addEventListener('click', function() {
-            // 1. 抓取網頁上的商品資料
+            // 1. 抓取商品資料
             const productData = {
-                name: document.querySelector('.product-name p').innerText,
-                price: 99, // 也可以用 document.querySelector('.price p').innerText 抓取再處理
-                quantity: parseInt(qtyInput.value),
-                image: document.querySelector('.product-picture img').src
+                name: document.querySelector('.product-name p')?.innerText || '商品名稱',
+                price: parseInt(document.querySelector('.price p')?.innerText?.replace(/\D/g, '') || '0'),
+                quantity: parseInt(qtyInput?.value || '1'),
+                image: document.querySelector('.product-picture img')?.src || '../img/default.jpg'
             };
 
-            // 2. 儲存到 LocalStorage (轉換成字串儲存)
-            localStorage.setItem('cartItem', JSON.stringify(productData));
+            if (productData.price === 0) {
+                alert('商品價格錯誤，請檢查頁面！');
+                return;
+            }
 
-            alert('已加入購物車！');
-            
-            // 3. 跳轉到購物車頁面
+            if (productData.quantity < 1) {
+                alert('請輸入正確的數量！');
+                return;
+            }
+
+            // 2. 讀取現有購物車
+            let cart = JSON.parse(localStorage.getItem('cart') || '[]');
+
+            // 3. 檢查商品是否已在購物車
+            const existingItem = cart.find(item => item.name === productData.name);
+
+            if (existingItem) {
+                // 同一商品累加數量
+                existingItem.quantity += productData.quantity;
+                alert(`${productData.name}\n已加入購物車！\n目前數量：${existingItem.quantity}`);
+            } else {
+                // 新商品加入購物車
+                cart.push(productData);
+                alert(`${productData.name}\n已加入購物車！`);
+            }
+
+            // 4. 保存購物車到 localStorage
+            localStorage.setItem('cart', JSON.stringify(cart));
+
+            // 5. 導向購物車頁面
             window.location.href = '../html/cart.html';
         });
     }
@@ -389,3 +415,4 @@ document.addEventListener('DOMContentLoaded', () => {
         console.error('商品容器 ID:', container ? '找到' : '找不到');
     }
 });
+
