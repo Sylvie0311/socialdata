@@ -8,23 +8,32 @@ body{
     font-family:'Noto Serif TC', serif;
     background-color: rgb(254, 203, 243);
 }
-header{
-    background-color:#fb6f92;
-    align-items: center;
-    padding:20px;
-    display:flex;
-    justify-content: center;
-}
-.logo{
-    width: 200px;
-    height:100px;
-    margin-right:20px;
-   
-}
+header {
+    display: flex;
+    align-items: center;      /* 垂直置中 */
+    justify-content: center;  /* 水平置中 */
+    gap: 20px;                /* logo 與文字間距 */
+    padding: 20px;
+    background-color: #fb6f92;
+    flex-wrap: wrap;          /* 手機小螢幕自動換行 */
+  }
+
+  .logo-container {
+    flex-shrink: 0;           /* 避免被壓縮 */
+    height: 150px;            /* 可調整 logo 高度 */
+    width: auto;              /* 自動寬度保持比例 */
+  }
+
+  .logo {
+    width: auto;
+    height: 100%;
+    object-fit: contain;      /* 保持原圖比例，不被拉扁 */
+  }
 h1{
     font-size:50px;
     color:rgb(251, 249, 249);
     line-height: 1;
+    text-align: center;
 }
 nav{
     background-color: #fca0b7;
@@ -342,4 +351,49 @@ footer a{
     height:40px;
     margin:20px;
     display: inline-block;
+}
+
+
+/* ---------- 響應式調整（手機和平板） ---------- */
+@media screen and (max-width: 1024px) {
+    aside {
+        width: 25%; /* 平板側邊欄變寬 */
+    }
+    main {
+        width: 75%;
+    }
+    .products {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media screen and (max-width: 768px) {
+    header {
+        flex-direction: column;
+        padding: 15px;
+    }
+    .logo-container {
+        height: 100px; /* 手機 logo 縮小 */
+    }
+    header h1 {
+        font-size: 2rem; /* 手機文字縮小 */
+    }
+    nav {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    aside {
+        width: 100%;
+        float: none;
+        margin-bottom: 10px;
+    }
+    main {
+        width: 100%;
+        float: none;
+    }
+    .products {
+        grid-template-columns: 1fr; /* 單欄顯示 */
+        gap: 15px;
+        margin: 10px 0;
+    }
 }
