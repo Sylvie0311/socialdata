@@ -1,232 +1,145 @@
-/* 商品介面樣式 - 響應式調整版 */
-
+/*購物車、會員、關於我們、評論*/
 *{
     box-sizing: border-box;
-    margin:0;
-    padding:0;
+    margin:0px;
+    padding:0px;
 }
-
 body{
-    font-family:'Noto Serif TC', serif;
-    background-image: url("../img/90519.jpg");
-    padding: 20px;
-}
-
-header a{
-   font-size: 18px;
-   text-decoration: none;
-   color: rgb(74, 6, 6);
-}
-
-header img{
-    width:40px;
-    height:40px;
-    margin:20px;
-    float:left;
-}
-
-.product_container {
-    max-width: 600px;
-    margin: 0 auto;
-    padding: 20px;
-    background-color: #ffe5ec;
-}
-
-.product-picture{
-    display:flex;
-    width:100%;
-    height:auto;
-    align-items: center;
-    justify-content:center;
-    overflow:hidden;
-    margin-bottom: 20px;
-}
-
-.product-picture img{
-    max-width:550px;
-    height:auto;
-}
-
-.product-name p{
-    font-size: 30px;
-    color: rgb(101, 4, 4);
-    margin-bottom:20px;
-    font-weight:bold;
-}
-
-.introduce{
-    font-size:18px;
-}
-
-.price p{
-    font-size:25px;
-    margin:20px 0;
-    color:rgb(255, 0, 0);
-    font-weight:bold;
-}
-
-.amount {  
-    display: flex;
-    align-items: center;
-    gap: 15px;
-}
-
-.amount p{
-    font-size:25px;
-    font-weight:bold;
-}
-
-.quantity-group { 
-    display: flex;
-    border: 1px solid #ddd; 
-    border-radius: 4px;
-    overflow: hidden;
-}
-
-.quantity-group button {
-    width: 40px;
-    height: 40px;
-    background-color: #fff;
-    border: none;
-    cursor: pointer;
-    font-size: 20px;
-    color: #666;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: background 0.2s;
-}
-
-.quantity-group button:hover {
-    background-color: #f5f5f5;
-}
-
-.quantity-group input {
-    width: 50px;
-    height: 40px;
-    border-top: none;
-    border-bottom: none;
-    border-left: 1px solid #ddd;
-    border-right: 1px solid #ddd;
-    text-align: center;
-    font-size: 16px;
-    outline: none;
-    appearance: textfield;
-}
-
-.quantity-group input::-webkit-outer-spin-button,
-.quantity-group input::-webkit-inner-spin-button {
-    -webkit-appearance: none;
+    font-family: 'Noto Sans TC', serif;
     margin: 0;
+    font-size: 16px;   /* ⭐ 星星大小在這裡 */
+    color: #ccc;
 }
 
-/* 評論 */
-.comment{
-    font-size:18px;
-    text-align: left; /* 左對齊 */
-}
-
-.comment h1{
-    font-size:20px;
-    text-align: left; /* 左對齊 */
-}
-
-/* 星等 */
-.stars{
-    color: gold;
-    font-size: 30px;
-    text-align: left;
-}
-
-.stars input{
-    display:none;
-}
-
-/* 點讚圖 */
-.finger{ 
-    display:flex;
-    justify-content: flex-start; /* 左對齊 */
-    align-items: center;    
-    gap: 10px;
-}
-
-.finger img{
-    width:30px;
-    height:auto;
-}
-
-.finger p{
-    margin:0;
-}
-
-.buy-button{
-    font-size:25px;
-    display:flex;
+.stars {
+    display: flex;
+    flex-direction: row-reverse;
     justify-content: center;
-    align-items:center;
-    height:100px;
-    margin-top:20px;
-}
-
-.buy-button button {
-    font-size: 25px;         
-    padding: 10px 30px;
-    width:600px;     
+  }
+  
+.stars input {
+    display: none;
+  }
+  
+.stars label {
+    font-size: 50px;
+    color: #ccc;
     cursor: pointer;
-    background-color: #0bd3b2; 
-    border: 1px solid #22dcf1;
-    border-radius: 30px;
+    transition: color 0.2s;
+  }
+  
+  /* 滑鼠移上去時，該星星和前面的星星變色 */
+.stars label:hover,
+.stars label:hover ~ label {
+    color: gold;
+  }
+  
+  /* 點選星星後，該星星和前面的星星變色 */
+.stars input:checked ~ label {
+    color: gold;
+  }
+
+.outer {
+    width: 90%;
+    margin: 30px auto;
+    border: 2px solid black;
+    padding: 20px;
 }
 
-/* ===== 響應式調整 ===== */
-@media (max-width: 768px) {
-    .product-container {
-        padding: 15px;
-        width: 95%;
-    }
-
-    .product-picture img {
-        max-width: 100%;
-    }
-
-    .product-name p {
-        font-size: 24px;
-    }
-
-    .introduce {
-        font-size: 16px;
-    }
-
-    .price p {
-        font-size: 22px;
-    }
-
-    .amount p {
-        font-size: 20px;
-    }
-
-    .quantity-group button {
-        width: 35px;
-        height: 35px;
-        font-size: 18px;
-    }
-
-    .quantity-group input {
-        width: 45px;
-        height: 35px;
-        font-size: 14px;
-    }
-
-    .comment {
-        font-size: 16px;
-    }
-
-    .stars {
-        font-size: 24px;
-    }
-
-    .buy-button button {
-        width: 100%;
-        font-size: 22px;
-    }
+.outer h1 {
+    text-align: center;
+    border-bottom: 2px solid black;
+    padding-bottom: 10px;
 }
+
+.cards {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 30px;
+}
+
+.card {
+    width: 180px;
+    border: 2px solid black;
+    text-align: center;
+    padding: 20px 10px;
+}
+
+.circle {
+    width: 120px;
+    height: 120px;
+    border: 2px solid black;
+    border-radius: 50%;
+    margin: 0 auto 20px auto;
+}
+
+.card p {
+    margin: 6px 0;
+}
+
+.review-container {
+    max-width: 700px;
+    margin: auto;
+    background: #fff;
+    border: 2px solid #000;
+}
+
+.title {
+    padding: 10px;
+    border-bottom: 2px solid #000;
+    font-size: 18px;
+}
+  
+.review-item {
+    display: flex;
+    align-items: flex-start;
+    padding: 15px;
+    border-bottom: 1px solid #000;
+}
+  
+.product-img {
+    width: 80px;
+    height: 80px;
+    border: 2px solid #000;
+    margin-right: 15px;
+    background-color: #fff;
+}
+  
+.review-content {
+    flex: 1;
+}
+  
+.stars {
+    font-size: 18px;
+    letter-spacing: 3px;
+}
+  
+.date {
+    font-size: 14px;
+    margin: 5px 0;
+}
+  
+.comment {
+    font-size: 14px;
+    margin-bottom: 10px;
+}
+  
+.product-name {
+    font-size: 14px;
+}
+  
+.actions {
+    white-space: nowrap;
+    margin-left: 10px;
+}
+  
+.actions a {
+    color: #000;
+    text-decoration: none;
+    margin-left: 5px;
+}
+  
+.actions a:hover {
+    text-decoration: underline;
+}
+
