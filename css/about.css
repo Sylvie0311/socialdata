@@ -11,6 +11,10 @@ body {
     padding: 20px;
 }
 
+.arrow{
+    width:30px;
+    height:30px;
+}
 /*卡片區域容器:置中並限制寬度*/
 .card-area{
     max-width: 1200px;
