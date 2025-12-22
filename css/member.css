@@ -19,6 +19,10 @@
     padding-bottom: 10px;
   }
   
+  .arrow{
+    width:30px;
+    height:30px;
+  }
   /* 我的評論標題 */
   .title {
     padding: 10px;
