@@ -1,7 +1,7 @@
 *{
     box-sizing: border-box;
-    margin:0px;
-    padding:0px;
+    margin:0;
+    padding:0;
 }
 body {
     font-family: "Noto Sans TC", Arial, sans-serif;
@@ -9,7 +9,7 @@ body {
     margin: 0;
     padding: 20px;
 }
-  
+
 /* Header */
 .cart-header {
     display: flex;
@@ -18,20 +18,19 @@ body {
     padding: 10px;
     margin-bottom: 10px;
 }
-  
+
 .back-s {
-    width: 24px;   /* 控制箭頭圖片大小 */
+    width: 24px;   
     height: 24px;
     cursor: pointer;
 }
-  
+
 .cart-title {
     flex: 1;
     text-align: center;
     font-size: 20px;
     font-weight: bold;
 }
-  
 
 /* 商品列 */
 .cart-item {
@@ -41,14 +40,14 @@ body {
     margin-bottom: 15px;
     border-radius: 10px;
     background-color: #fff;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);/*陰影效果*/
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
     transition: transform 0.2s ease;
 }
 
-.card-item:hover{
-    transition: translateY(-3px);/*鼠標到位時微微浮起*/
+.cart-item:hover {
+    transform: translateY(-3px);
 }
-  
+
 .item-img {
     width: 90px;
     height: 70px;
@@ -59,18 +58,18 @@ body {
     margin-right: 15px;
     font-size: 14px;
 }
-  
+
 .item-info {
     flex: 1;
 }
-  
+
 .item-name {
     border: 2px solid #1c355e;
     padding: 5px;
     margin-bottom: 8px;
     text-align: center;
 }
-  
+
 .item-qty {
     border: 2px solid #1c355e;
     padding: 5px 8px;
@@ -79,7 +78,7 @@ body {
     align-items: center;
     gap: 8px;
 }
-  
+
 .qty-s {
     width: 28px;
     height: 28px;
@@ -106,26 +105,23 @@ body {
 /* Footer */
 .cart-footer {
     display: flex;
-    justify-content: flex-end; /* 讓內容靠右排列 */
+    justify-content: flex-end;
     align-items: center;
     border-radius: 6px;
-    gap: 20px; /* 總金額和按鈕之間留間距 */
-
-
-    /*固定在底下*/
+    gap: 20px;
     position: sticky;
-    bottom: 0px;
+    bottom: 0;
     background: #fca0b7;
     padding: 15px;
     margin-top: 20px;
     box-shadow: 0 -2px 6px rgba(0,0,0,0.1);
-  }
-  
+}
+
 .total {
     font-size: 16px;
     font-weight: bold;
 }
-  
+
 .buy-s {
     padding: 6px 20px;
     border: 2px solid #1c355e;
@@ -135,7 +131,7 @@ body {
     border-radius: 6px;
     transition: all 0.2s ease;
 }
-  
+
 .buy-s:hover {
     background: #1c355e;
     color: #fff;
@@ -143,7 +139,7 @@ body {
 }
 
 #order-info{
-    margin-top: 20px;;
+    margin-top: 20px;
     padding: 15px;
     background: #fff;
     border-radius: 10px;
@@ -153,4 +149,26 @@ body {
 #order-info h2{
     margin-bottom: 10px;
     color: #1c355e;
+}
+
+/* 響應式 */
+@media (max-width: 768px) {
+    .cart-item {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .item-img {
+        margin-bottom: 10px;
+    }
+    .cart-title {
+        font-size: 18px;
+    }
+    .cart-footer {
+        flex-direction: column;
+        gap: 10px;
+        align-items: flex-start;
+    }
+    .buy-s {
+        width: 100%;
+    }
 }
