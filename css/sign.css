@@ -1,11 +1,15 @@
 /* 全域 */
 body {
-    font-family: "Microsoft JhengHei", sans-serif;
+    font-family:'Noto Serif TC', serif;
     background-color: #ffe5ec;
     margin: 0;
     padding: 0;
 }
-
+.arrow{
+    width: 30px;
+    height: 30px;
+    margin:20px;
+}
 /* 容器自適應 */
 .container {
     max-width: 500px;
@@ -104,3 +108,4 @@ input[type="tel"] {
         width: 100%;
     }
 }
+
