@@ -78,7 +78,7 @@ h1 {
 
 .stars {
   display: flex;
-  flex-direction: row-reverse;
+  flex-direction: row;
   justify-content: flex-start;
   font-size: 20px;
   letter-spacing: 3px;
@@ -238,3 +238,4 @@ h1 {
       text-align: center;
   }
 }
+
