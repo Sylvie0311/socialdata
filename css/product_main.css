@@ -1,4 +1,4 @@
-/* 商品介面樣式 - 響應式調整版 */
+/* 商品介面樣式 - 響應式調整版 */ㄠ
 
 *{
     box-sizing: border-box;
@@ -8,7 +8,7 @@
 
 body{
     font-family:'Noto Serif TC', serif;
-    background-image: url("../img/90519.jpg");
+    background-image: url("../img/Screenshot_2025-12-23-11-27-48-85_c0d35d5c8ea536686f7fb1c9f2f8f274.jpg");
     padding: 20px;
 }
 
@@ -230,3 +230,4 @@ header img{
         font-size: 22px;
     }
 }
+
