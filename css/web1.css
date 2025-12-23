@@ -6,37 +6,30 @@
 }
 body{
     font-family:'Noto Serif TC', serif;
-    background-color: rgb(254, 203, 243);
+    background-color: #ffe5ec;
+    color:#22223B;
 }
-header {
-    display: flex;
-    align-items: center;      /* 垂直置中 */
-    justify-content: center;  /* 水平置中 */
-    gap: 20px;                /* logo 與文字間距 */
-    padding: 20px;
-    background-color: #fb6f92;
-    flex-wrap: wrap;          /* 手機小螢幕自動換行 */
-  }
-
-  .logo-container {
-    flex-shrink: 0;           /* 避免被壓縮 */
-    height: 150px;            /* 可調整 logo 高度 */
-    width: auto;              /* 自動寬度保持比例 */
-  }
-
-  .logo {
-    width: auto;
-    height: 100%;
-    object-fit: contain;      /* 保持原圖比例，不被拉扁 */
-  }
+header{
+    /*background-color:#fb8ba7;*/
+    background-color:#fb8ba7;
+    align-items: center;
+    padding:20px;
+    display:flex;
+    justify-content: center;
+}
+.logo{
+    width: 200px;
+    height:100px;
+    margin-right:20px;
+   
+}
 h1{
     font-size:50px;
     color:rgb(251, 249, 249);
     line-height: 1;
-    text-align: center;
 }
 nav{
-    background-color: #fca0b7;
+    background-color: #fdaec2;
     display:flex;
     padding:20px;
     width:100%;
@@ -102,7 +95,7 @@ aside{
     color: #3b0808;
 }
 .brand-item:hover {
-    background-color: #eba2d4; 
+    background-color: rgb(254,217,228); 
 }
 .brand-item:hover a {
     color: #444646;  /*品牌、公分滑鼠游標顏色變動*/
@@ -152,7 +145,7 @@ aside{
 
 
 main{
-    background-color:rgb(254, 203, 243);
+    background-color:rgb(247, 247, 247);
     width:85%;
     padding:10px;
     float:right;
@@ -251,8 +244,8 @@ main{
     width:200px;
     height:200px;
     object-fit: contain;
-    align-items: center; /* 垂直置中 */
-    justify-items: center;  /* 水平置中*/
+    align-items: center;
+    justify-items: center; 
 }
 .product {
     text-align: center; 
@@ -329,71 +322,25 @@ main{
 
 
 footer{
-    background-color: #fb6f92;
+    background-color: #fb8ba7;
     padding:20px;
-    position:relative;
-    bottom:0;
     width:100%;
     clear:both;
-    font-size:30px;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
+    font-size:18px;
+    color:white;
 }
 footer a{
     text-decoration:none;
     color: inherit;
-    display: inline-block;
-    flex-wrap: wrap;
+    display: inline;
+    flex-wrap:wrap;
 }
 .icon{
-    width:40px;
-    height:40px;
+    width:30px;
+    height:30px;
     margin:20px;
-    display: inline-block;
-}
-
-
-/* ---------- 響應式調整（手機和平板） ---------- */
-@media screen and (max-width: 1024px) {
-    aside {
-        width: 25%; /* 平板側邊欄變寬 */
-    }
-    main {
-        width: 75%;
-    }
-    .products {
-        grid-template-columns: repeat(2, 1fr);
-    }
-}
-
-@media screen and (max-width: 768px) {
-    header {
-        flex-direction: column;
-        padding: 15px;
-    }
-    .logo-container {
-        height: 100px; /* 手機 logo 縮小 */
-    }
-    header h1 {
-        font-size: 2rem; /* 手機文字縮小 */
-    }
-    nav {
-        flex-wrap: wrap;
-        justify-content: center;
-    }
-    aside {
-        width: 100%;
-        float: none;
-        margin-bottom: 10px;
-    }
-    main {
-        width: 100%;
-        float: none;
-    }
-    .products {
-        grid-template-columns: 1fr; /* 單欄顯示 */
-        gap: 15px;
-        margin: 10px 0;
-    }
 }
