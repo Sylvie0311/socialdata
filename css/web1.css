@@ -33,8 +33,20 @@ nav{
     display:flex;
     padding:20px;
     width:100%;
-    justify-content:right;
+    align-items: center;
 }
+.login {
+    margin-right:auto;
+}
+.up-left{
+    width:35px;
+    height:35px;
+}
+.up{
+    width:30px;
+    height:30px;
+    margin-left:20px;
+}                                            
 .search-bar{
     padding:5px 0;
     width:200px;
@@ -55,11 +67,7 @@ nav{
 .search-bar::placeholder {
     color: #edf1f3; /*讓搜尋欄中的字變色*/
 }
-.up{
-    width:30px;
-    height:30px;
-    margin-left:20px;
-}
+
 
 aside{
     width: 15%; 
