@@ -21,9 +21,8 @@ body {
     margin: 0 auto;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 20px; /*卡片間距*/
+    gap: 20px; 
 }
-
 
 /* 單一卡片樣式*/
 .card {
@@ -32,7 +31,10 @@ body {
     padding: 20px 10px;
     box-shadow: 0 4px 8px rgba(0,0,0,0.1);
     text-align: center;
-    height: 350px;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
 }
 
 /* 圓形頭像 */
@@ -50,28 +52,40 @@ body {
     color: #333;
     margin-bottom: 10px;
     line-height: 1.5;
+    word-wrap: break-word;       
+    overflow-wrap: break-word;   
+    word-break: break-all;
 }
-/* ===== 響應式設定 ===== */
 
-/* 手機：單欄顯示 */
-@media screen and (max-width: 600px) {
+/*響應式*/
+/*手機 */
+@media (max-width: 767px) {
     .card-area {
-        grid-template-columns: 1fr;
-        padding: 0 10px;
+        grid-template-columns: 1fr; 
+        padding: 10px;
+    }
+    .card {
+        height: auto; 
+        padding: 15px;
+    }
+    h1 {
+        font-size: 1.5rem; 
     }
 }
 
-/* 平板：兩欄顯示 */
-@media screen and (min-width: 601px) and (max-width: 992px) {
+/*平板*/
+@media (min-width: 768px) and (max-width: 1024px) {
     .card-area {
-        grid-template-columns: repeat(2, 1fr);
-        padding: 0 15px;
+        grid-template-columns: repeat(2, 1fr); 
+    }
+    .card {
+        height: 400px; 
     }
 }
 
-/* 桌面：保持兩欄或三欄視需求 */
-@media screen and (min-width: 993px) {
+/*桌面 */
+@media (min-width: 1025px) {
     .card-area {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: repeat(2, 1fr); 
     }
 }
