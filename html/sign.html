@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="zh-Hant">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -39,34 +39,13 @@
           <input type="email" id="email" name="email" required placeholder="example@mail.com">
         </div>
 
-        <!-- 付款方式 -->
-        <div class="form-row">
-          <label>選擇付款方式：</label>
-          <label><input type="radio" name="payment" value="cash" required> 貨到付款</label>
-          <label><input type="radio" name="payment" value="credit"> 信用卡</label>
-        </div>
-
-        <!-- 運送方式 -->
-        <div class="form-row">
-          <label>選擇運送方式：</label>
-          <label><input type="radio" name="shipping" value="home" onclick="toggleAddress()"> 宅配到府</label>
-          <label><input type="radio" name="shipping" value="7-11" onclick="toggleAddress()"> 7-11取貨</label>
-        </div>
-
-        <!-- 地址輸入 -->
-        <div class="form-row" id="address-home" style="display:none;">
-          <label for="home-address">宅配地址：</label>
-          <input type="text" id="home-address" name="home-address" placeholder="請輸入住家地址">
-        </div>
-
-        <div class="form-row" id="address-711" style="display:none;">
-          <label for="store-address">7-11門市：</label>
-          <input type="text" id="store-address" name="store-address" placeholder="請輸入門市名稱或代碼">
-        </div>
+        
 
         <!-- 提交 -->
         <div class="form-actions">
-          <button type="submit" class="s primary">註冊</button>
+          <a href="../index.html">
+            <button type="submit" class="s primary">註冊</button>
+          </a>
           <a href="../html/login.html" class="s link">已有帳號？前往登入</a>
         </div>
       </form>
@@ -77,5 +56,4 @@
 
 </body>
 </html>
-
 
