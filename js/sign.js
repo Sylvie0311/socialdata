@@ -218,15 +218,8 @@ document.addEventListener('DOMContentLoaded', function() {
                 alert('購物車是空的，無法結帳！');
                 return;
             }
-
-            const total = calculateTotal(cart);
-            const itemList = cart.map(item => `${item.name} x${item.quantity} = $${item.price * item.quantity}`).join('\n');
-            
-            const confirmMsg = `結帳成功！\n\n商品清單：\n${itemList}\n\n總金額：$${total}\n\n謝謝您的購買！`;
-            alert(confirmMsg);
-
-            localStorage.removeItem('cart');
-            renderCart();
+            window.location.href = 'pay.html';
+           
         });
     }
 
@@ -238,3 +231,38 @@ document.addEventListener('DOMContentLoaded', function() {
 
     renderCart();
 });
+
+/*caer.html結帳按鈕跳轉至付款頁面*/ 
+document.addEventListener('DOMContentLoaded', function() {
+        const listContainer = document.getElementById('pay-items-list');
+        const totalDisplay = document.getElementById('pay-total-price');
+        
+        // 從 LocalStorage 抓取購物車資料
+        const cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+        if (cart.length === 0) {
+            listContainer.innerHTML = '<p>購物車內無商品</p>';
+            return;
+        }
+
+        let total = 0;
+        cart.forEach(item => {
+            const itemTotal = item.price * item.quantity;
+            total += itemTotal;
+            listContainer.innerHTML += `
+                <div style="display:flex; justify-content:space-between; margin-bottom:8px; font-size:14px;">
+                    <span>${item.name} x ${item.quantity}</span>
+                    <span>$${itemTotal}</span>
+                </div>
+            `;
+        });
+        totalDisplay.innerText = total;
+
+        // 處理最後的下單按鈕
+        document.getElementById('checkout-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('感謝您的訂購！訂單已成立。');
+            localStorage.removeItem('cart'); // 下單成功後清空購物車
+            window.location.href = '../index.html'; // 回到首頁
+        });
+    });
