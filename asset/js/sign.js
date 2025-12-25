@@ -219,6 +219,8 @@ document.addEventListener('DOMContentLoaded', function() {
            
         });
     }
+    
+
     renderCart();
 });
 
@@ -253,7 +255,6 @@ document.addEventListener('DOMContentLoaded', function() {
             e.preventDefault();
             alert('感謝您的訂購！訂單已成立。');
             localStorage.removeItem('cart'); // 下單成功後清空購物車
-            window.location.href = '../index.html'; // 回到首頁
+            window.location.href = '../../index.html'; // 回到首頁
         });
-
     });
