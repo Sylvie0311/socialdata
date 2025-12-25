@@ -1,0 +1,91 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+/*整體背景與字型設定*/
+body {
+    font-family:'Noto Serif TC', serif;
+    background-color: #ffe5ec;
+    margin: 0;
+    padding: 20px;
+}
+
+.arrow{
+    width:30px;
+    height:30px;
+}
+/*卡片區域容器:置中並限制寬度*/
+.card-area{
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px; 
+}
+
+/* 單一卡片樣式*/
+.card {
+    background-color: #fff;
+    border-radius: 10px;
+    padding: 20px 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    text-align: center;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+/* 圓形頭像 */
+.photo-box img {
+    width: 100px;  
+    height: 100px;  
+    object-fit: cover; 
+    border-radius: 50%;
+    margin-bottom: 15px;
+}
+  
+/* 文字段落樣式 */
+.card p {
+    font-size: 14px;
+    color: #333;
+    margin-bottom: 10px;
+    line-height: 1.5;
+    word-wrap: break-word;       
+    overflow-wrap: break-word;   
+    word-break: break-all;
+}
+
+/*響應式*/
+/*手機 */
+@media (max-width: 767px) {
+    .card-area {
+        grid-template-columns: 1fr; 
+        padding: 10px;
+    }
+    .card {
+        height: auto; 
+        padding: 15px;
+    }
+    h1 {
+        font-size: 1.5rem; 
+    }
+}
+
+/*平板*/
+@media (min-width: 768px) and (max-width: 1024px) {
+    .card-area {
+        grid-template-columns: repeat(2, 1fr); 
+    }
+    .card {
+        height: 400px; 
+    }
+}
+
+/*桌面 */
+@media (min-width: 1025px) {
+    .card-area {
+        grid-template-columns: repeat(2, 1fr); 
+    }
+}
