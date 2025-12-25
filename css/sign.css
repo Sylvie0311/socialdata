@@ -79,6 +79,7 @@ input[type="tel"] {
     background: #4a90e2;
     color: #fff;
     border: none;
+    text-decoration: none;
 }
 
 .s.link {
@@ -108,4 +109,5 @@ input[type="tel"] {
         width: 100%;
     }
 }
+
 
