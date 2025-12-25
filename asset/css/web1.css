@@ -210,7 +210,7 @@ main{
     transform: translateX(-50%); 
     display: flex;
     gap: 10px; 
-    z-index: 9999; /* 確保圓點在圖片上層 */
+    z-index: 999; /* 確保圓點在圖片上層 */
 }
 /* 圓點樣式 */
 .dot {
@@ -236,7 +236,6 @@ main{
 .ad-dots .dot:nth-child(1) { animation-delay: 0s; }
 .ad-dots .dot:nth-child(2) { animation-delay: 3s; }
 .ad-dots .dot:nth-child(3) { animation-delay: 6s; }
-
 
 .products{
     display:grid;
