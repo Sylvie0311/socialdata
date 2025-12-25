@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>註冊</title>
+  <link rel="stylesheet" href="../css/sign.css">
+</head>
+<body>
+  <main class="container">
+    <section class="card">
+      <h1 class="title">註冊</h1>
+      <form class="form" action="/sign" method="post">
+
+        <!-- 帳號與密碼 -->
+        <div class="form-row">
+          <label for="username">暱稱：</label>
+          <input type="text" id="username" name="username" required placeholder="請輸入暱稱">
+        </div>
+
+        <div class="form-row">
+          <label for="password">密碼：</label>
+          <input type="password" id="password" name="password" required placeholder="請輸入密碼">
+        </div>
+
+        <!-- 個人資料 -->
+        <div class="form-row">
+          <label for="name">姓名：</label>
+          <input type="text" id="name" name="name" required placeholder="王小明">
+        </div>
+
+        <div class="form-row">
+          <label for="phone">電話：</label>
+          <input type="tel" id="phone" name="phone" required placeholder="0912-345-678">
+        </div>
+
+        <div class="form-row">
+          <label for="email">E-mail：</label>
+          <input type="email" id="email" name="email" required placeholder="example@mail.com">
+        </div>
+
+        
+
+        <!-- 提交 -->
+        <div class="form-actions">
+          <a href="../../index.html" class="s primary">註冊</a>
+         
+          <a href="login.html" class="s link">已有帳號？前往登入</a>
+        </div>
+      </form>
+    </section>
+  </main>
+  <script src="../js/sign.js"></script>
+  <html src="member.html"></html>
+
+</body>
+</html>
+
