@@ -241,10 +241,9 @@ main{
 .products{
     display:grid;
     grid-template-columns: repeat(3,1fr);
-    /*grid-template-rows: repeat(3,auto);*/
     gap:20px;
     margin:20px;
-
+    text-align:center;
 }
 .products img{
     width:200px;
