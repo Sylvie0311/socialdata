@@ -110,10 +110,11 @@ input[type="tel"] {
         width: 100%;
     }
     .s.primary{
-        width:100%;
+        width:70%;
         max-width: 200px;
     }
 }
+
 
 
 
