@@ -20,7 +20,7 @@ const allProducts = {
         'sofy_23_normal': { name: "蘇菲 日用天然原生棉 超薄型23cm", price: "$109", img: "../../img/天然原生棉(超薄型23cm).png", intro: "天然原生棉素材，親膚不刺激，適合一般流量日用。" },
         'sofy_26cm':{name: "蘇菲 日用天然原生棉 超薄型26cm", price: "$119", img: "../../img/天然原生棉(超薄型26cm).png", intro: "加長日用款，吸收力升級，給您更全面的防護。"},
         'sofy_29cm': { name: "蘇菲 夜用天然原生棉 超薄型29cm", price: "$129", img: "../../img/天然原生棉(超薄型29cm).png", intro: "夜用基礎款，天然棉柔觸感，呵護生理期敏感肌膚。" },
-        'sofy_28cm': { name: "蘇菲 超薄夜用型28cm",price: "$159",  img: "../../img/超薄 夜用型.png", intro: "超薄瞬吸體，快速吸收不回滲，夜間活動依然自在。" },
+        'sofy_28cm': { name: "蘇菲 超薄夜用型28cm",price: "$159",  img: "../../img/超薄 夜用型.png", intro: "超薄瞬吸體，快速吸收不回滲，夜間活動依然自在。專為量多夜晚設計的「超薄瞬吸體」，能瞬間捕捉大流量並緊鎖於底層，維持表層極致乾爽、不回滲，讓妳在夜間活動依然輕盈自在。" },
         'sofy_ultra_28': { name: "蘇菲 草本抑菌 夜用型28cm", price: "$159", img: "../../img/草本抑菌 夜用型.png", intro: "超薄瞬吸體，快速吸收不回滲，夜間活動依然自在。" },
         'sofy_happy_29': { name: "蘇菲 Happy Catch 夜用型29cm", price: "$89", img: "../../img/Happy Catch 夜用型.png", intro: "獨特可愛貓咪設計，心情與肌膚同時獲得療癒。" },
         //蕾妮雅
@@ -92,16 +92,14 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 
-/* =========================================================
-   加入購物車
-   ========================================================= */
+/* 加入購物車 */
    document.addEventListener('DOMContentLoaded', function() {
     const addToCartBtn = document.getElementById('add-to-cart');
     const qtyInput = document.getElementById('quantity-input');
 
     if (addToCartBtn) {
         addToCartBtn.addEventListener('click', function() {
-            // 1. 抓取商品資料
+            //抓取商品資料
             const productData = {
                 name: document.querySelector('.product-name p')?.innerText || '商品名稱',
                 price: parseInt(document.querySelector('.price p')?.innerText?.replace(/\D/g, '') || '0'),
@@ -119,32 +117,30 @@ document.addEventListener('DOMContentLoaded', function() {
                 return;
             }
 
-            // 2. 讀取現有購物車
+           
             let cart = JSON.parse(localStorage.getItem('cart') || '[]');
 
-            // 3. 檢查商品是否已在購物車
+            //檢查商品是否已在購物車
             const existingItem = cart.find(item => item.name === productData.name);
 
             if (existingItem) {
-                // 同一商品累加數量
+                
                 existingItem.quantity += productData.quantity;
                 alert(`${productData.name}\n已加入購物車！\n目前數量：${existingItem.quantity}`);
             } else {
-                // 新商品加入購物車
+                
                 cart.push(productData);
                 alert(`${productData.name}\n已加入購物車！`);
             }
 
-            // 4. 保存購物車到 localStorage
+            
             localStorage.setItem('cart', JSON.stringify(cart));
 
-            // 5. 導向購物車頁面
-            window.location.href = '../html/cart.html';
         });
     }
 });
 /*main底下的跳轉頁面按鈕*/
-// 全域變數與配置
+
 window.currentPage = 1; 
 const pageConfig = {
     1: { prefix: 'sofy' },
@@ -153,7 +149,7 @@ const pageConfig = {
     4: { prefix: 'carnation' }
 };
 
-//定義切換頁面的全域函式 (給 onclick 使用)
+
 window.changePage = function(pageNum) {
     // 檢查範圍，防止箭頭點出界
     if (pageNum < 1 || pageNum > 4) return;
@@ -207,7 +203,7 @@ document.addEventListener('DOMContentLoaded', () => {
    ========================================================= */
    document.addEventListener('DOMContentLoaded', function() {
     const adGroup = document.querySelector('.ad-group');
-
+     
     if (adGroup) {
         const adsData = [
             { 
@@ -224,6 +220,7 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         ];
 
+       
         let htmlContent = '';
         
         adsData.forEach((ad, index) => {
