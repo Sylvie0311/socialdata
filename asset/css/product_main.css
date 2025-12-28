@@ -1,5 +1,4 @@
 /*商品介面樣式*/
-
 *{
     box-sizing: border-box;
     margin:0px;
@@ -7,8 +6,15 @@
 }
 body{
     font-family:'Noto Serif TC', serif;
-    background-image: url("../../img/91228.jpg");
     background-size: contain;
+}
+header{
+    background-color: #fb8ba7; 
+    width: 100%;               
+    padding: 10px 0;          
+    display: flex;             
+    align-items: center;      
+    border-bottom: 1px solid #E3D28A;
 }
 header a{
    font-size: 18px;
@@ -21,37 +27,54 @@ header img{
     margin:20px;
     float:left;
 }
-.product_container {
-    max-width: 600px;  
-    margin: 0 auto;  
-    padding: 20px;
-    background-color: #fffae5;
+.cart{
+    margin-left: 87%;
 }
-.product-picture{
+
+.product-container{
     display:flex;
     width:100%;
-    height:auto;
-    align-items: center;
-    justify-content:center;
-    overflow:hidden;
-    margin-bottom: 20px;
+    margin:0;
+    padding:30px;
+    gap:30px;
+    align-items: flex-start;
+}
+.product_container1 {
+    padding: 10px;
+    background-color: transparent;
+    width:40%;
+}
+.product-container2{
+    width:60%;
+    flex:1.5;
+    display:flex;
+    flex-direction: column;
+}
+.product-picture{
+    flex: 1.5;        
+    min-width: 300px; 
+    margin: 0;
+    display: block;
 }
 .product-picture img{
-    max-width:550px;
+    width:100%;
     height:auto;
+    display:block;
 }
 .product-name p{
-    font-size: 30px;
+    font-size: 40px;
     color:rgb(101, 4, 4);
-    margin-bottom:20px;
+    margin:30px 0 30px 0;
     font-weight:bold;
+    justify-items:right;
 }
 .introduce{
-    font-size:18px;
+    font-size:20px;
+    margin:30px 0 30px 0;
 }
 .price p{
-    font-size:25px;
-    margin:20px 0 20px 0;
+    font-size:40px;
+    margin:30px 0 30px 0;
     color:rgb(255, 0, 0);
     font-weight:bold;
 }
@@ -61,8 +84,9 @@ header img{
     gap: 15px; /* 「數量」與按鈕組的距離 */
 }
 .amount p{
-    font-size:25px;
+    font-size:30px;
     font-weight:bold;
+     margin:30px 0 30px 0;
 }
 .quantity-group { 
     display: flex;
@@ -109,11 +133,20 @@ header img{
 /*評論*/
 .comment{
     font-size:18px;
+    margin:30px;
+    padding:20px;
 }
 .comment h1{
-    font-size:20px;
+    font-size:30px;
+    margin-bottom: 10px;
 }
-
+.comment-block{
+    border:1px dashed #e08e8e ;
+    margin-bottom:20px;
+    border-radius:20px;
+    padding:20px;
+    background-color:lightyellow;
+}
 /*星等*/
 .stars{
     color: gold;
@@ -142,18 +175,21 @@ header img{
 }
 .buy-button{
     font-size:25px;
-    display:flex;
-    justify-content: center;
-    align-items:center;
-    height:100px;
+    justify-content: flex-start;
+    height:auto;
     margin-top:20px;
 }
 .buy-button button {
     font-size: 25px;         
     padding: 10px 30px;
-    width:600px;     
+    width:400px;     
     cursor: pointer;
     background-color: #fdaec2; 
     border: 1px solid #fdaec2;
     border-radius: 30px;
+}
+.buy-button button:hover{
+    color:white;
+    background-color: #f7baba;
+    border: 1px solid #f7baba;
 }
