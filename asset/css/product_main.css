@@ -11,10 +11,11 @@ body{
 header{
     background-color: #fb8ba7; 
     width: 100%;               
-    padding: 10px 0;          
+    padding: 10px 20px;          
     display: flex;             
     align-items: center;      
     border-bottom: 1px solid #E3D28A;
+    justify-content: space-between;
 }
 header a{
    font-size: 18px;
@@ -24,11 +25,8 @@ header a{
 header img{
     width:40px;
     height:40px;
-    margin:20px;
-    float:left;
-}
-.cart{
-    margin-left: 87%;
+    display: block;
+    margin:10px;
 }
 
 .product-container{
@@ -192,4 +190,34 @@ header img{
     color:white;
     background-color: #f7baba;
     border: 1px solid #f7baba;
+}
+
+/*響應式*/
+@media (max-width: 767px) {
+    header{
+        padding: 5px 15px;
+    }
+    .product-container {
+        flex-direction: column; 
+        padding: 20px;
+        gap: 20px;
+    }
+    .product_container1, .product_container2 {
+        width: 100%;
+    }
+    .product-name p {
+        font-size: 24px;
+        margin: 15px 0;
+    }
+    .price p {
+        font-size: 28px;
+    }
+    .comment h1 {
+        font-size: 22px;
+    }
+    .buy-button button{
+        font-size: 24px;
+        width:300px;
+        justify-items: center;
+    }
 }
