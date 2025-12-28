@@ -80,6 +80,7 @@ input[type="tel"] {
     color: #fff;
     border: none;
     text-decoration: none;
+    width:250px;
 }
   
 .s.link {
