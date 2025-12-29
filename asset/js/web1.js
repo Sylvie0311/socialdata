@@ -46,7 +46,7 @@ const allProducts = {
         //康乃馨
         'carnation_215cm': { name: "康乃馨 御守棉超薄 一般流量 21.5cm", price: "$100", img: "../../img/御守棉超薄衛生棉  一般流量.jpg", intro: "適合一般日用，超薄設計讓運動穿搭不尷尬。" },
         'carnation_28cm': { name: "康乃馨 御守棉超薄 量多加長 28cm", price: "$129", img: "../../img/御守棉超薄衛生棉(量多加長).jpg", intro: "加長防護，量多日用的不二選擇。" },
-        'carnation_255cm': { name: "康乃馨 超薄蝶型衛生棉 量多型 25.5cm", price: "$139/包", img: "../../img/超薄蝶型衛生棉  量多型.jpg", intro: "經典蝶翼設計，穩定不移位，吸力強勁。" },
+        'carnation_255cm': { name: "康乃馨 超薄蝶型衛生棉 量多型 25.5cm", price: "$139", img: "../../img/超薄蝶型衛生棉  量多型.jpg", intro: "經典蝶翼設計，穩定不移位，吸力強勁。" },
         'carnation_pad': { name: "康乃馨 香草花園護墊 向日葵", price: "$99", img: "../../img/香草花園護墊(向日葵).jpg", intro: "清甜香氣，柔軟表層，給您如花園般的舒適感。" },
         'carnation_36cm': { name: "康乃馨 御守棉夜用超長 36cm", price: "$149", img: "../../img/御守棉夜用超長.jpg", intro: "御守棉系列，瞬吸防漏，守護每個不安穩的夜晚。" },
         'carnation_40cm': { name: "康乃馨 御守棉夜用極長 40cm", price: "$159", img: "../../img/御守棉夜用極長.jpg", intro: "旗艦級40cm長度，全方位阻截後漏。" },
@@ -405,3 +405,4 @@ document.addEventListener('DOMContentLoaded', () => {
         console.error('商品容器 ID:', container ? '找到' : '找不到');
     }
 });
+
