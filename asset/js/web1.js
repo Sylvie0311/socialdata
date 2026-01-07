@@ -35,7 +35,7 @@ const allProducts = {
         'laurier_rose': { name: "蕾妮亞 淨妍護墊 浪漫玫瑰微香", price: "$99", img: "../../img/蕾妮亞淨妍護墊(浪漫玫瑰微香).png", intro: "淡淡玫瑰清香，保持每日乾爽好心情。" },
         'laurier_pad': { name: "蕾妮亞 淨妍護墊 透氣海藍無香", price: "$99", img: "../../img/蕾妮亞淨妍護墊(透氣海藍無香).jpg", intro: "高透氣設計，無香料負擔，純淨呵護。" },
         //靠得住
-        'kotex_girl': { name: "靠得住 少女肌衛生棉", price: "$99", img: "../../img/少女肌衛生棉.png", intro: "專為少女肌膚設計，細緻親膚，減少摩擦紅腫。" },
+        'kotex_girl': { name: "靠得住 少女肌衛生棉 23cm", price: "$99", img: "../../img/少女肌衛生棉.png", intro: "專為少女肌膚設計，細緻親膚，減少摩擦紅腫。" },
         'kotex_23cm': { name: "靠得住 茶樹沁涼 涼感衛生棉 23cm", price: "$100", img: "../../img/茶樹沁涼 涼感衛生棉.jpg", intro: "添加茶樹精油，微涼舒爽，告別夏天悶熱感。" },
         'kotex_35cm': { name: "靠得住 完美封漏夜用衛生棉 35cm", price: "$99", img: "../../img/完美封漏夜用衛生棉.jpg", intro: "3重防漏側邊，翻身零死角，量多夜晚最安心。" },
         'kotex_pad': { name: "靠得住 梔子花香氛護墊", price: "$89", img: "../../img/梔子花香氛護墊.jpg", intro: "優雅梔子花香，專利除臭技術，清爽自信。" },
@@ -406,5 +406,6 @@ document.addEventListener('DOMContentLoaded', () => {
         console.error('商品容器 ID:', container ? '找到' : '找不到');
     }
 });
+
 
 
