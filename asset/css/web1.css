@@ -159,11 +159,13 @@ main{
 }
 /*動態廣告樣式 */
 .ad-group { 
-    width: 100%; 
+    width: 90%; 
     height: 550px; 
     margin: 10px;
     position: relative; 
-    overflow: hidden; 
+    overflow: hidden;
+    justify-content: center;
+    align-content: center;
 }
 .ad-group a{
     position: absolute; 
