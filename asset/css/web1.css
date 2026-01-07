@@ -521,7 +521,7 @@ p {
         border-radius: 8px;
     }
     .ad-group { 
-        width: 100%;           
+        width: auto;           
         height: 350px;        
         margin: 20px auto;    
         overflow: hidden;
