@@ -1,17 +1,28 @@
 /*商品介面+首頁*/ 
 /*搜尋*/ 
-document.addEventListener('DOMContentLoaded', function() {
-    const searchIcon = document.getElementById('search-icon');
-    const searchInput = document.getElementById('search-input');
+document.addEventListener('DOMContentLoaded', function () {
+  const searchIcon = document.getElementById('search-icon');
+  const searchInput = document.getElementById('search-input');
+
   if (searchIcon && searchInput) {
-        searchIcon.addEventListener('click', function() {
-            searchInput.classList.toggle('show-search');
-            if (searchInput.classList.contains('show-search')) {
-                searchInput.focus();
-            }
-        });
-    }
+    searchIcon.addEventListener('click', function () {
+      searchInput.classList.toggle('show-search');
+      if (searchInput.classList.contains('show-search')) {
+        searchInput.focus();
+      }
+    });
+
+    searchInput.addEventListener('keydown', function (event) {
+      if (event.key === 'Enter') {
+        const keyword = searchInput.value.trim();
+        if (keyword !== '') {
+          window.location.href = `search.html?q=${encodeURIComponent(keyword)}`;
+        }
+      }
+    });
+  }
 });
+
 /*aside連結不同的商品介面*/
 const allProducts = {
         //蘇菲
@@ -405,4 +416,5 @@ document.addEventListener('DOMContentLoaded', () => {
         console.error('商品容器 ID:', container ? '找到' : '找不到');
     }
 });
+
 
