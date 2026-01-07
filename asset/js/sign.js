@@ -32,8 +32,8 @@ document.addEventListener('DOMContentLoaded', function() {
         const item = JSON.parse(savedData);
         const total = item.price * item.quantity;
         
-        // 2. 使用你既有的 cart-item CSS 結構來顯示資料
-        // 我們將資料插入到你預留的 #cart-content 容器中
+        
+        // 將資料插入到 #cart-content 容器中
         cartContent.innerHTML = `
             <div class="cart-item">
                 <div class="item-img">
@@ -258,3 +258,4 @@ document.addEventListener('DOMContentLoaded', function() {
             window.location.href = '../../index.html'; // 回到首頁
         });
     });
+
