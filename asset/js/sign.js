@@ -32,8 +32,8 @@ document.addEventListener('DOMContentLoaded', function() {
         const item = JSON.parse(savedData);
         const total = item.price * item.quantity;
         
-        
-        // 將資料插入到 #cart-content 容器中
+        // 2. 使用你既有的 cart-item CSS 結構來顯示資料
+        // 我們將資料插入到你預留的 #cart-content 容器中
         cartContent.innerHTML = `
             <div class="cart-item">
                 <div class="item-img">
@@ -73,7 +73,6 @@ document.addEventListener('DOMContentLoaded', function() {
         const reviewItems = document.querySelectorAll('.review-items');
         console.log('找到 review-items 個數:', reviewItems.length);
         reviewItems.forEach(item => {
-            item.style.display = 'none';
         });
 
         const allDivs = document.querySelectorAll('div');
@@ -259,3 +258,46 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
+/*歷史訂單:搜尋欄*/
+document.addEventListener('DOMContentLoaded', function() {
+    // 1. 選取搜尋輸入框 (根據你的 HTML 結構)
+    const searchInput = document.querySelector('.search-bar input');
+    // 2. 選取搜尋按鈕
+    const searchBtn = document.querySelector('.search-s');
+    // 3. 選取表格中所有的資料列 (排除第一個表頭列 tr)
+    const tableRows = document.querySelectorAll('.order-table tr:not(:first-child)');
+
+    if (!searchInput) return; // 如果頁面上沒有搜尋框則不執行
+
+    // 定義搜尋邏輯函數
+    function filterOrders() {
+        const filterValue = searchInput.value.toUpperCase().trim();
+
+        tableRows.forEach(row => {
+            // 抓取每一列的第一個欄位 td (即訂單編號)
+            const orderIdCell = row.getElementsByTagName('td')[0];
+            
+            if (orderIdCell) {
+                const textValue = orderIdCell.textContent || orderIdCell.innerText;
+                
+                // 檢查訂單編號是否包含關鍵字
+                if (textValue.toUpperCase().indexOf(filterValue) > -1) {
+                    row.style.display = ""; // 顯示符合的列
+                } else {
+                    row.style.display = "none"; // 隱藏不符合的列
+                }
+            }
+        });
+    }
+
+    // 綁定「即時搜尋」：當使用者放開按鍵時觸發
+    searchInput.addEventListener('keyup', filterOrders);
+
+    // 綁定「按鈕點擊」：點擊放大鏡圖示時觸發
+    if (searchBtn) {
+        searchBtn.addEventListener('click', function(e) {
+            e.preventDefault(); // 防止按鈕預設行為
+            filterOrders();
+        });
+    }
+});
