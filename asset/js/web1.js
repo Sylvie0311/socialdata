@@ -1,26 +1,16 @@
 /*商品介面+首頁*/ 
 /*搜尋*/ 
-document.addEventListener('DOMContentLoaded', function () {
-  const searchIcon = document.getElementById('search-icon');
-  const searchInput = document.getElementById('search-input');
-
+document.addEventListener('DOMContentLoaded', function() {
+    const searchIcon = document.getElementById('search-icon');
+    const searchInput = document.getElementById('search-input');
   if (searchIcon && searchInput) {
-    searchIcon.addEventListener('click', function () {
-      searchInput.classList.toggle('show-search');
-      if (searchInput.classList.contains('show-search')) {
-        searchInput.focus();
-      }
-    });
-
-    searchInput.addEventListener('keydown', function (event) {
-      if (event.key === 'Enter') {
-        const keyword = searchInput.value.trim();
-        if (keyword !== '') {
-          window.location.href = `search.html?q=${encodeURIComponent(keyword)}`;
-        }
-      }
-    });
-  }
+        searchIcon.addEventListener('click', function() {
+            searchInput.classList.toggle('show-search');
+            if (searchInput.classList.contains('show-search')) {
+                searchInput.focus();
+            }
+        });
+    }
 });
 
 /*aside連結不同的商品介面*/
