@@ -260,21 +260,21 @@ document.addEventListener('DOMContentLoaded', function() {
 
 /*歷史訂單:搜尋欄*/
 document.addEventListener('DOMContentLoaded', function() {
-    // 1. 選取搜尋輸入框 (根據你的 HTML 結構)
+    // 選取搜尋輸入框
     const searchInput = document.querySelector('.search-bar input');
-    // 2. 選取搜尋按鈕
+    // 選取搜尋按鈕
     const searchBtn = document.querySelector('.search-s');
-    // 3. 選取表格中所有的資料列 (排除第一個表頭列 tr)
+    //選取表格中所有的資料列 
     const tableRows = document.querySelectorAll('.order-table tr:not(:first-child)');
 
-    if (!searchInput) return; // 如果頁面上沒有搜尋框則不執行
+    if (!searchInput) return; 
 
-    // 定義搜尋邏輯函數
+   
     function filterOrders() {
         const filterValue = searchInput.value.toUpperCase().trim();
 
         tableRows.forEach(row => {
-            // 抓取每一列的第一個欄位 td (即訂單編號)
+            // 抓取每一列的第一個欄td(訂單編號)
             const orderIdCell = row.getElementsByTagName('td')[0];
             
             if (orderIdCell) {
@@ -289,14 +289,12 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     }
-
-    // 綁定「即時搜尋」：當使用者放開按鍵時觸發
+ 
     searchInput.addEventListener('keyup', filterOrders);
 
-    // 綁定「按鈕點擊」：點擊放大鏡圖示時觸發
     if (searchBtn) {
         searchBtn.addEventListener('click', function(e) {
-            e.preventDefault(); // 防止按鈕預設行為
+            e.preventDefault(); // 防止表單提交
             filterOrders();
         });
     }
