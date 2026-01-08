@@ -9,12 +9,11 @@ body{
     background-size: contain;
 }
 header{
-    background-color: #fb8ba7; 
+    background-color: #FFF5E1; 
     width: 100%;               
     padding: 10px 20px;          
     display: flex;             
     align-items: center;      
-    border-bottom: 1px solid #E3D28A;
     justify-content: space-between;
 }
 header a{
@@ -113,12 +112,11 @@ header img{
     height: 40px;
     border-top: none;
     border-bottom: none;
-    border-left: 1px solid #ddd;  /* 左邊隔線 */
-    border-right: 1px solid #ddd; /* 右邊隔線 */
+    border-left: 1px solid #ddd;  
+    border-right: 1px solid #ddd;
     text-align: center;
     font-size: 16px;
     outline: none;
-    /* 隱藏原本數字輸入框的小箭頭 */
     appearance: textfield;
 }
 /* 隱藏 Chrome/Safari 的箭頭 */
@@ -144,6 +142,78 @@ header img{
     border-radius:20px;
     padding:20px;
     background-color:lightyellow;
+    display:flex;
+    align-items: flex-start;
+    gap: 20px;
+}
+.comment-right{
+    font-size:18px;
+    line-height: 1.6;
+    display: flex;
+    flex-direction: column;
+}
+.comment-avatar-container {
+    width: 100px;
+    display: flex;
+    justify-content: center; 
+    align-items: center;     
+    flex-shrink: 0;     
+}
+.avatar-circle {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 30px;
+    background-color: lightgray; 
+    aspect-ratio: 1 / 1;
+}
+.comment-right {
+    flex: 1;                
+    font-size: 18px;
+    line-height: 2;
+    display: flex;
+    flex-direction: column;
+}
+.comment-bottom {
+    margin-top: 30px;
+    padding: 20px;
+    border: 1px solid #fdaec2;
+    border-radius: 20px;
+    background-color: #fff5f7;
+}
+.comment-bottom input[type="text"] {
+    width: 100%; 
+    padding: 8px; 
+    border-radius: 10px; 
+    border: 1px solid #ccc; 
+    margin: 10px 0;
+}
+.comment-bottom textarea {
+    width: 100%; 
+    padding: 10px; 
+    border-radius: 10px; 
+    border: 1px solid #ccc; 
+    resize: none; 
+    font-family: inherit;
+}
+.t{
+    text-align: right; 
+    margin-top: 10px;
+}
+.add-comment-btn {
+    background-color: #fdaec2; 
+    border: 1px solid #fdaec2;
+    border-radius: 30px;
+    padding: 10px 20px;
+    font-size: 18px; 
+}
+.add-comment-btn:hover{
+    box-shadow: 0 0 10px rgba(253, 174, 194, 0.5);
+    color:white;
+    background-color:#e08e8e;
 }
 /*星等*/
 .stars{
@@ -161,6 +231,7 @@ header img{
     justify-content: flex-end; 
     align-items: center;    
     gap: 10px;
+    margin-top: auto;
 }
 .finger img{
     width:30px;
@@ -191,6 +262,21 @@ header img{
     background-color: #f7baba;
     border: 1px solid #f7baba;
 }
+.finger-item {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+/*新增評論*/
+.comment-avatar-container {
+    width: 80px;
+    display: flex;
+    justify-content: center; 
+    align-items: center;     
+    flex-shrink: 0;         
+}
+
+
 
 /*響應式*/
 @media (max-width: 767px) {
@@ -236,5 +322,44 @@ header img{
         font-size: 24px;
         width:300px;
         justify-items: center;
+    }
+    .comment {
+        margin: 10px; 
+        padding: 10px;
+    }
+
+    .comment-block {
+        flex-direction: column; 
+        align-items: center;    
+        text-align: center;     
+        gap: 10px;
+    }
+
+    .comment-avatar-container {
+        width: 100%;
+    }
+
+    .comment-right {
+        width: 100%;
+        line-height: 1.5; 
+    }
+
+    .stars {
+        text-align: center; 
+        font-size: 24px;    
+    }
+
+    .finger {
+        justify-content: center; 
+        margin-top: 15px;
+    }
+
+    .comment-bottom {
+        padding: 15px;
+    }
+    
+    .add-comment-btn {
+        width: 100%; 
+        font-size: 16px;
     }
 }
