@@ -7,7 +7,6 @@ body {
     font-family:'Noto Serif TC', serif;
     background-color: #ffe5ec;
     margin: 0;
-    padding: 20px;
 }
   
 /* Header */
@@ -17,17 +16,19 @@ body {
     border-bottom: 2px solid #1c355e;
     padding: 10px;
     margin-bottom: 10px;
+    background-color:#fb8ba7;
+    font-size: 40px;
 }
 .shoppingCart{
     width:30px;
     height:30px;
     align-items: baseline;
 }
-
 .back-s {
-    width: 24px;   /* 控制箭頭圖片大小 */
-    height: 24px;
-    cursor: pointer;
+    width: 30px;   
+    height: 30px;
+    margin-left: 15px;
+    align-items: center;
 }
   
 .cart-title {
@@ -108,8 +109,8 @@ body {
     font-weight: bold;
 }
 
-/* Footer */
-.cart-footer {
+
+.cart {
     display: flex;
     justify-content: flex-end;
     align-items: center;
@@ -117,19 +118,18 @@ body {
     gap: 20px;
     position: sticky;
     bottom: 0;
-    background: #fca0b7;
     padding: 15px;
     margin-top: 20px;
-    box-shadow: 0 -2px 6px rgba(0,0,0,0.1);
   }
   
 .total {
-    font-size: 16px;
+    font-size: 30px;
     font-weight: bold;
 }
   
 .buy-s {
-     padding: 6px 20px;
+    font-size: 20px;
+    padding: 6px 20px;
     border: 2px solid #1c355e;
     background: #fff;
     font-weight: bold;
@@ -171,6 +171,125 @@ body {
     text-decoration: none;
     display: inline-block;
 }
+
+
+/*footer information*/
+footer {
+    background-color: #fb8ba7; 
+    color: white;              
+    padding: 40px 20px;
+    text-align: center;       
+    margin-top: 50px;
+}
+.footer-content {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;         
+    max-width: 1200px;
+    margin: 0 auto;
+    gap: 20px;
+    border-bottom: 1px solid rgba(255,255,255,0.3);
+}
+.footer-content p {
+    color: white;              
+    line-height:2.5;
+    text-align: left;
+    min-width: 200px;
+}
+.footer-content a {
+    color: white;
+    text-decoration: none;
+    transition: 0.2s;
+}
+.footer-content a:hover {
+    color: #1f7cdf; 
+    text-decoration: none;
+}
+.footer-icon img, .icon {
+    width: 40px;
+    height: auto;
+    margin: 10px 5px;
+}
+.icon {
+    width: 40px;      
+    height: auto;
+    margin: 0 15px;   
+}
+.footer-icon a{
+    text-decoration: none; 
+}
+footer div a {
+    text-decoration: none ;
+    display: inline-block; 
+    border: none ;
+    outline: none ;
+}
+.social-links {
+    margin-top: 40px;     
+    margin-bottom: 20px;   
+    display: flex;
+    justify-content: center;
+    gap: 30px;             
+}
+.social-links .icon {
+    width: 45px;           
+    height: auto;
+    transition: transform 0.3s;
+}
+
+.copyright {
+    margin-top: 30px;
+    font-size: 14px;
+    
+    padding-top: 20px;
+    color:white;
+}
+.info-container {
+    max-width: 900px;
+    margin: 50px auto;
+    background: white;
+    padding: 50px;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+}
+section {
+    scroll-margin-top: 30px; 
+    margin-bottom: 60px;
+}
+h2 {
+    color: #fb8ba7;
+    border-bottom: 2px solid #fb8ba7;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+}
+h2::before { 
+    content: "♥"; 
+    margin-right: 10px; 
+    font-size: 0.8em; 
+}
+h3 { 
+    color: #331133; 
+    margin-top: 25px; 
+}
+p { 
+    color: #555; 
+    margin-bottom: 15px; 
+}
+.back-btn {
+    display: inline-block;
+    background: #fb8ba7;
+    color: white;
+    padding: 10px 25px;
+    border-radius: 50px;
+    text-decoration: none;
+    transition: 0.3s;
+}
+.back-btn:hover { 
+    background: #f4c2c2; 
+    transform: translateY(-2px); 
+}
 /* 響應式 */
 @media (max-width: 768px) {
     .cart-item {
@@ -179,9 +298,14 @@ body {
     }
     .item-img {
         margin-bottom: 10px;
+        align-items: center;
     }
     .cart-title {
-        font-size: 18px;
+        font-size: 20px;
+        align-items: center;
+    }
+    .total{
+        font-size: 20px;
     }
     .cart-footer {
         flex-direction: column;
@@ -189,6 +313,20 @@ body {
         align-items: flex-start;
     }
     .buy-s {
-        width: 100%;
+        width: 50%;
+    }
+
+    .footer-content {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .footer-content p {
+        text-align: center;
+        min-width: unset;
+    }
+
+    .social-links {
+        gap: 20px;
     }
 }
