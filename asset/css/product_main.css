@@ -137,7 +137,7 @@ header img{
     margin-bottom: 10px;
 }
 .comment-block{
-    border:1px dashed #e08e8e ;
+    border:1px solid #e08e8e ;
     margin-bottom:20px;
     border-radius:20px;
     padding:20px;
@@ -363,3 +363,4 @@ header img{
         font-size: 16px;
     }
 }
+
