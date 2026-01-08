@@ -9,6 +9,7 @@ body {
   background-color: #ffe5ec;
   padding: 20px;
 }
+
 header{
     background-color:#fb8ba7;
     align-items: center;
@@ -16,16 +17,18 @@ header{
     display:flex;
     justify-content: center;
 }
+
 .logo{
     width: 200px;
     height:100px;
     margin-right:20px;
-   
 }
+
 h1{
     font-size:50px;
     color:rgb(251, 249, 249);
     line-height: 1;
+}
 
 /* 箭頭返回 */
 .arrow {
@@ -306,4 +309,5 @@ h1 {
     font-size: 18px;       
   }
 }
+
 
