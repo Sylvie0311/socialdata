@@ -57,37 +57,69 @@
         <div class="comment">
             <h1>顧客評論與評分💭</h1>
             <hr><br>
-            <div class="comment-block">
-                <p>👩‍🦳評分:</p>
-                <div class="stars">
-                    <span>&#9733;&#9733;&#9733;&#9733;&#9733;</span>
-                </div><br>          
+            <div id="comment-list-container">
+                <div class="comment-block">
+                    <div class="comment-avatar-container">
+                        <div class="avatar-circle">S</div>
+                    </div>
+                    
+                    <div class="comment-right">
+                        <p><strong>Mr.S</strong><br>
+                        <div class="stars">
+                            <span>&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+                        </div>        
+                        
+                        <p>購買品項: 靠得住日用23cm 薄長形</p>
+                        <p>品質真的好的沒話說!超級讚的啦🥰~已經回夠了好幾次了</p>
+                        <div class="finger">
+                            <div class="finger-item">
+                                <img src="../../img/good.png">
+                                <p>(101)</p>
+                            </div>
+                            <div class="finger-item">
+                                <img src="../../img/no good.png">
+                                <p>(5)</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
                 
-                <p>購買品項: 靠得住日用23cm 薄長形</p><br>
-                <p>品質真的好的沒話說!超級讚的啦🥰~已經回夠了好幾次了</p><br>
-                <div class="finger">
-                    <img src="../../img/good.png">
-                    <p>(101)</p>
-                    <img src="../../img/no good.png">
-                    <p>(5)</p>
+                <div class="comment-block">
+                    <div class="comment-avatar-container">
+                        <div class="avatar-circle">T</div>
+                    </div>
+                    
+                    <div class="comment-right">
+                        <p><strong>Ms.T</strong><br>
+                        <div class="stars">
+                            <span>&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+                        </div>        
+                        
+                        <p>購買品項: 蘇菲日用23cm 量多型</p>
+                        <p>第一次購買這家商品，有被驚豔到! 觸感真的非常好...用了幾次之後發現都不會側漏了，下次還會再回購!🫶</p>
+                        <div class="finger">
+                            <div class="finger-item">
+                                <img src="../../img/good.png">
+                                <p>(101)</p>
+                            </div>
+                            <div class="finger-item">
+                                <img src="../../img/no good.png">
+                                <p>(5)</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <div class="comment-block">
-                <p>🧑‍🦰評分:</p>
-                <div class="stars">
-                    <span>&#9733;&#9733;&#9733;&#9733;</span>
-                </div><br> 
-                <p>購買品項: 蘇菲日用23cm 量多型</p><br>
-                <p>第一次購買這家商品，有被驚豔到! 觸感真的非常好...用了幾次之後發現都不會測漏了，下次還會再回購!🫶</p><br>
-                <div class="finger">
-                    <img src="../../img/good.png">
-                    <p>(75)</p>
-                    <img src="../../img/no good.png">
-                    <p>(3)</p>
+            <div class="comment-bottom">
+                <p><strong>發表您的評論</strong></p>
+                <input type="text" id="input-product-name" placeholder="輸入購買品項 (例如：蘇菲日用...)" >
+                <textarea id="input-comment-text" placeholder="分享您的使用心得..." rows="3" ></textarea>
+        
+                <div class="t">
+                    <button type="button" class="add-comment-btn" id="submit-btn" onclick="addNewComment()">提交評論</button>
                 </div>
             </div>
         </div>
-
         
     </div>
     <script src="../js/web1.js"></script>
