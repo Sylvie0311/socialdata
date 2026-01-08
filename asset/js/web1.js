@@ -12,7 +12,6 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 });
-
 /*aside連結不同的商品介面*/
 const allProducts = {
         //蘇菲
@@ -35,7 +34,7 @@ const allProducts = {
         'laurier_rose': { name: "蕾妮亞 淨妍護墊 浪漫玫瑰微香", price: "$99", img: "../../img/蕾妮亞淨妍護墊(浪漫玫瑰微香).png", intro: "淡淡玫瑰清香，保持每日乾爽好心情。" },
         'laurier_pad': { name: "蕾妮亞 淨妍護墊 透氣海藍無香", price: "$99", img: "../../img/蕾妮亞淨妍護墊(透氣海藍無香).jpg", intro: "高透氣設計，無香料負擔，純淨呵護。" },
         //靠得住
-        'kotex_girl': { name: "靠得住 少女肌衛生棉 23cm", price: "$99", img: "../../img/少女肌衛生棉.png", intro: "專為少女肌膚設計，細緻親膚，減少摩擦紅腫。" },
+        'kotex_girl': { name: "靠得住 少女肌衛生棉", price: "$99", img: "../../img/少女肌衛生棉.png", intro: "專為少女肌膚設計，細緻親膚，減少摩擦紅腫。" },
         'kotex_23cm': { name: "靠得住 茶樹沁涼 涼感衛生棉 23cm", price: "$100", img: "../../img/茶樹沁涼 涼感衛生棉.jpg", intro: "添加茶樹精油，微涼舒爽，告別夏天悶熱感。" },
         'kotex_35cm': { name: "靠得住 完美封漏夜用衛生棉 35cm", price: "$99", img: "../../img/完美封漏夜用衛生棉.jpg", intro: "3重防漏側邊，翻身零死角，量多夜晚最安心。" },
         'kotex_pad': { name: "靠得住 梔子花香氛護墊", price: "$89", img: "../../img/梔子花香氛護墊.jpg", intro: "優雅梔子花香，專利除臭技術，清爽自信。" },
@@ -47,7 +46,7 @@ const allProducts = {
         //康乃馨
         'carnation_215cm': { name: "康乃馨 御守棉超薄 一般流量 21.5cm", price: "$100", img: "../../img/御守棉超薄衛生棉  一般流量.jpg", intro: "適合一般日用，超薄設計讓運動穿搭不尷尬。" },
         'carnation_28cm': { name: "康乃馨 御守棉超薄 量多加長 28cm", price: "$129", img: "../../img/御守棉超薄衛生棉(量多加長).jpg", intro: "加長防護，量多日用的不二選擇。" },
-        'carnation_255cm': { name: "康乃馨 超薄蝶型衛生棉 量多型 25.5cm", price: "$139", img: "../../img/超薄蝶型衛生棉  量多型.jpg", intro: "經典蝶翼設計，穩定不移位，吸力強勁。" },
+        'carnation_255cm': { name: "康乃馨 超薄蝶型衛生棉 量多型 25.5cm", price: "$139/包", img: "../../img/超薄蝶型衛生棉  量多型.jpg", intro: "經典蝶翼設計，穩定不移位，吸力強勁。" },
         'carnation_pad': { name: "康乃馨 香草花園護墊 向日葵", price: "$99", img: "../../img/香草花園護墊(向日葵).jpg", intro: "清甜香氣，柔軟表層，給您如花園般的舒適感。" },
         'carnation_36cm': { name: "康乃馨 御守棉夜用超長 36cm", price: "$149", img: "../../img/御守棉夜用超長.jpg", intro: "御守棉系列，瞬吸防漏，守護每個不安穩的夜晚。" },
         'carnation_40cm': { name: "康乃馨 御守棉夜用極長 40cm", price: "$159", img: "../../img/御守棉夜用極長.jpg", intro: "旗艦級40cm長度，全方位阻截後漏。" },
@@ -152,14 +151,20 @@ const pageConfig = {
 
 
 window.changePage = function(pageNum) {
-    // 檢查範圍，防止箭頭點出界
     if (pageNum < 1 || pageNum > 4) return;
     
     window.currentPage = pageNum;
-
-    
     renderProducts(pageNum);
 
+    //當跳轉到2、3、4頁面時，隱藏廣告
+    const adSlider = document.querySelector('.ad-group'); 
+    if (adSlider) {
+        if (pageNum === 1) {
+            adSlider.style.display = 'block'; 
+        } else {
+            adSlider.style.display = 'none';  // 2, 3, 4 頁隱藏
+        }
+    }
     
     document.querySelectorAll('.page-num').forEach(el => el.classList.remove('active'));
     const activeBtn = document.getElementById(`page-${pageNum}`);
@@ -408,4 +413,52 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 
+/* 添加評論功能 */
+function addNewComment() {
+    const productNameInput = document.getElementById('input-product-name');
+    const commentTextInput = document.getElementById('input-comment-text');
+    const commentList = document.getElementById('comment-list-container');
 
+    
+    if (productNameInput.value.trim() === "" || commentTextInput.value.trim() === "") {
+        alert("請填寫品項名稱與心得！");
+        return;
+    }
+
+    
+    const newBlock = document.createElement('div');
+    newBlock.className = 'comment-block';
+    
+    newBlock.innerHTML = `
+        <div class="comment-avatar-container">
+            <div class="avatar-circle">客</div>
+        </div>
+        <div class="comment-right">
+            <p><strong>匿名顧客</strong></p>
+            <div class="stars">
+                <span>&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+            </div>        
+            <p>購買品項: ${productNameInput.value}</p>
+            <p>${commentTextInput.value}</p>
+            <div class="finger">
+                <div class="finger-item">
+                    <img src="../../img/good.png">
+                    <p>(0)</p>
+                </div>
+                <div class="finger-item">
+                    <img src="../../img/no good.png">
+                    <p>(0)</p>
+                </div>
+            </div>
+        </div>
+    `;
+
+    //將新評論插入到最上方
+    commentList.insertBefore(newBlock, commentList.firstChild);
+    
+    // 清空輸入框
+    productNameInput.value = "";
+    commentTextInput.value = "";
+
+    alert("感謝您的評論！");
+}
